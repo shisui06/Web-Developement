@@ -1,0 +1,99 @@
+~`~<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    .wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #c4c4c4
+}
+
+.col1, .col2, .col3 {
+  background: #fe4c4c;
+  position: relative;
+  margin: 10px;
+  padding: 5px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: sans-serif;
+
+  min-height: 100px;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.col1 {
+  &:after {
+    content: '1';
+  }
+
+  width: 100px;
+}
+
+.col2 {
+  &:after {
+    content: '2';
+  }
+
+  width: calc(100% - (100px + 60px))
+}
+
+.col3 {
+  &:after {
+    content: '3';
+  }
+
+  width: calc(100% - 30px);
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 768px) {  
+  .inner {
+    flex-direction: column;
+  }
+
+  .col1 {
+    width: 300px;
+  }
+
+  .col2 {
+    width: auto;
+  } 
+
+  .col3 {
+    width: auto;
+  }
+}
+
+
+
+
+</style>
+
+
+    <div class="wrapper">
+        <div class="inner">
+          <div class="col1"></div>
+          <div class="col2"></div>
+          <div class="col3"></div>
+        </div>
+      </div>
+</body>
+</html>
