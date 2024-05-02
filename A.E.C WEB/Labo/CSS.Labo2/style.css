@@ -1,0 +1,42 @@
+
+.grid.container{
+    display:grid;
+    grid-template:1fr 1fr 1fr;
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  1) Transformez .grid-container en un conteneur de grille 
+  avec deux colonnes et trois lignes.
+  
+  2) Utilisez grid-template-areas pour structurer la grille 
+  de la manière suivante :
+  
+    a. La première ligne contient l'en-tête (header) qui 
+    s'étend sur deux colonnes.
+  
+    b. La deuxième ligne contient la barre latérale (sidebar) 
+    dans la première colonne et le contenu principal (main-content) 
+    dans la seconde.
+  
+    c. La troisième ligne contient le pied de page (footer) qui 
+    s'étend sur deux colonnes.
+  
+  3) Assurez-vous que chaque zone de la grille correspond à sa 
+  classe respectivement nommée (par exemple, la zone "header" pour l'en-tête).
+              
