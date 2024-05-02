@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENIMER GAME</title>
+
+</head>
+<body>
+    <nav>
+        <input type="text" id="mines-trouves" value="" readonly>
+        <button onclick="Partie">Partie</button>
+        <input type="text" id="temps-ecoule" value="" readonly>
+        <label for="temps-ecoule"></label><br>
+     </nav>
+    <main>
+        <table> 
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+               <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+                <th><img src="./gris.png" alt="boitegris" width="50" height="50"></th>
+                <td><img src="./gris.png" alt="boitegris" width="50" height="50"></td>
+            </tr>
+        </table>
+    </main>    
+    <footer>      
+        <table>
+        <select id="monselect">
+          <option value="valeur2" selected>10</option>
+          <option value="valeur1">20</option>
+          <option value="valeur3">50</option>
+          <option value="valeur3">100</option>
+        </select>
+        <select id="monselect">
+           <option value="valeur2" selected>10</option>
+           <option value="valeur1">20</option>
+           <option value="valeur3">50</option>
+           <option value="valeur3">100</option>
+        </select>
+        </table>
+    </footer>
+    <section><a href="">Démineur</a></section> 
+    <section><h1>Voici les règles</h1></section>
+</body>
+</html>
