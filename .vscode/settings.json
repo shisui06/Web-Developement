@@ -7,9 +7,9 @@
             },
             "previewLimit": 50,
             "server": "localhost",
-            "port": 3306,
+            "port": 3307,
             "driver": "MySQL",
-            "name": "home project DB",
+            "name": "root",
             "database": "rent_mtl",
             "username": "root",
             "password": "Montreal17$"
