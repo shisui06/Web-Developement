@@ -1,6 +1,6 @@
 
 
-  div.grid-container {
+  grid-container {
     border: 5px solid lightcoral; 
     display: grid;
     grid-gap: 10px;

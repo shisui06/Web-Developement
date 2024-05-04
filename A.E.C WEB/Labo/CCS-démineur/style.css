@@ -1,27 +1,21 @@
 div.conteneur{
     display: grid;
     height: 100vh;
-    
-    
-    /*
-    
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 10% 80% 10%;
-    
-    */
-    grid-template-columns: [col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end] 1fr [col-end];    
+    grid-template-rows: 10% 80% 10%;  
     grid-template-areas: 
       "nav    nav    nav"
       "lien   grille regles"
-      "lien   format ."         
+      "lien   format  format"   ;      
       }
 
 
-      
-.nav{
+  
+.div > header {
     grid-area: nav;
     place-self: center;
     background-color: blue;
+    
    
 }
 .grille{
