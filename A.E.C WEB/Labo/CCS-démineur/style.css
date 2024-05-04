@@ -4,42 +4,36 @@ div.conteneur{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 10% 80% 10%;  
     grid-template-areas: 
-      "nav    nav    nav"
+      "nav    nav    nav "
       "lien   grille regles"
-      "lien   format  format"   ;      
-      }
-
-
-  
-.div > header {
-    grid-area: nav;
-    place-self: center;
-    background-color: blue;
-    
-   
+      "lien   format ."   ; 
+  }
+.nav{
+  grid-area: nav;
+  place-self: center;
+}
+.header {
+  grid-area: nav;
+  place-self: center;
 }
 .grille{
-    background-color: blue;
-    grid-area: grille;
-    place-self: center;
+    
+  grid-area: grille;
+  place-self: center;
 }
 .format{
-    grid-area: format;
-    place-self: center;
-
+  grid-area: format;
+  place-self: center;
 }
 .regles{
-  background-color: blue;
-    
-    grid-area: regles;
+  grid-area: regles;
 }
-h1
-{
-    text-align: center;
+h1{
+  text-align: center;
 }
 p.center {
-    text-align: center;
-    color: red;
+  text-align: center;
+  color: red;
 }
 
 

@@ -1,18 +1,3 @@
 {
-    "sqltools.connections": [
-        {
-            "mysqlOptions": {
-                "authProtocol": "default",
-                "enableSsl": "Disabled"
-            },
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 3307,
-            "driver": "MySQL",
-            "name": "root",
-            "database": "rent_mtl",
-            "username": "root",
-            "password": "Montreal17$"
-        }
-    ]
+    "sqltools.connections": []
 }
