@@ -1,42 +1,41 @@
 
-.grid.container{
-    display:grid;
-    grid-template:1fr 1fr 1fr;
-    
+
+  div.grid-container {
+    border: 5px solid lightcoral; 
+    display: grid;
+    grid-gap: 10px;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "header  header"
+    "sidebar main-content"
+    "footer  footer" ;
   }
+
+
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  1) Transformez .grid-container en un conteneur de grille 
-  avec deux colonnes et trois lignes.
-  
-  2) Utilisez grid-template-areas pour structurer la grille 
-  de la manière suivante :
-  
-    a. La première ligne contient l'en-tête (header) qui 
-    s'étend sur deux colonnes.
-  
-    b. La deuxième ligne contient la barre latérale (sidebar) 
-    dans la première colonne et le contenu principal (main-content) 
-    dans la seconde.
-  
-    c. La troisième ligne contient le pied de page (footer) qui 
-    s'étend sur deux colonnes.
-  
-  3) Assurez-vous que chaque zone de la grille correspond à sa 
-  classe respectivement nommée (par exemple, la zone "header" pour l'en-tête).
+ .header {
+    background: aquamarine;
+    grid-area: header;     
+ } 
+ .sidebar {
+    grid-area: sidebar;
+    background: red;      
+   } 
+  .footer {
+    grid-area: footer;
+    background: blue;
+       } 
+  .main-content{
+    background: pink;
+  }
+       
+       /*
+       Transform .grid-container into a grid container with two columns and three rows.
+       Use grid-template-areas to structure the grid as follows:
+       a. The first row contains the header that spans across two columns.
+       b. The second row contains the sidebar in the first column and the main content in the second column.
+       c. The third row contains the footer that spans across two columns.
+       Ensure that each grid area corresponds to its respective named class (for example, the "header" area for the header).
               

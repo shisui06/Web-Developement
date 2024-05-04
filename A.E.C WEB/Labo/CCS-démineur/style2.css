@@ -1,0 +1,28 @@
+
+  
+/* Define the grid layout using grid-template-areas */
+.conteneur {
+  display: grid;
+  grid-template-areas:
+    "nav nav nav"
+    "lien grille regles"
+    "lien format .";
+  grid-template-rows: auto auto auto auto; /* Define rows based on grid-template-areas */
+  grid-gap: 10px; /* Spacing between grid items */
+}
+
+/* Style each grid item */
+.grid-i {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+/* Target specific grid areas for background color */
+.grid-item[style*="grid-area: header"] {
+  background-color: lightblue; /* Background color for header row */
+}
+
+.grid-item[style*="grid-area: footer"] {
+  background-color: lightblue; /* Background color for footer row */
+}

@@ -1,0 +1,54 @@
+div.conteneur{
+    display: grid;
+    height: 100vh;
+    
+    
+    /*
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 80% 10%;
+    
+    */
+    grid-template-columns: [col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end] 1fr [col-end];    
+    grid-template-areas: 
+      "nav    nav    nav"
+      "lien   grille regles"
+      "lien   format ."         
+      }
+
+
+      
+.nav{
+    grid-area: nav;
+    place-self: center;
+    background-color: blue;
+   
+}
+.grille{
+    background-color: blue;
+    grid-area: grille;
+    place-self: center;
+}
+.format{
+    grid-area: format;
+    place-self: center;
+
+}
+.regles{
+  background-color: blue;
+    
+    grid-area: regles;
+}
+h1
+{
+    text-align: center;
+}
+p.center {
+    text-align: center;
+    color: red;
+}
+
+
+
+
+
