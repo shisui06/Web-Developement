@@ -1,0 +1,221 @@
+Exemple somme des nombres de 1 à 10 (10 + 9 + 8 ... + 1)
+boucle pour ... fin pour
+========================================================
+01 somme <- 0
+02 pour k <- 10 à 1 pas de -1 
+03     somme <- somme + k
+04 fin pour
+05 afficher "La somme des nombres de 1 à 10 est : ", somme
+
+
+Exemple somme des nombres de 1 à 10 (10 + 9 + 8 ... + 1)
+boucle tant que ... fin tqnt que
+========================================================
+1 somme <- 0
+2 k <- 10
+3 tant que k >= 1
+4     somme <- somme + k
+5   k <- k - 1
+6 fin tant que
+7 afficher "La somme des nombres de 1 à 10 est : ", somme  
+
+
+Exemple boucle "pour ... fin pour" imbriquée dans une structure "si ... sinon ...fin si"
+========================================================================================
+Une banque permet à chacun de ses clients de placer un montant d'argent à un taux 
+d'intérêt de 12% calculé annuellement, pour un maximum de 5 ans.
+Écrire un algorithme qui lit, pour un client, le montant d'argent qu'il veut investir et le 
+nombre d'années pendant lesquelles il désire placer cet argent.
+L'algorithme doit afficher le montant cumulé obtenu après chaque année de placement.
+
+01 tauxInteret <- 12
+02 afficher "Entrez le montant que vous souhaitez investir et le nombre d'années de placement"
+03 lire montantInvesti, nbAnnees
+04 montant <- montantInvesti
+05 si nbAnnees >= 1 et nbAnnees <= 5  
+06     pour numeroAnnee <- 1 à nbAnnees 
+07         montant <- montant + (montant * tauxInteret / 100)
+08         afficher "Après ", numeroAnnee, " année(s) le capital est de ", montant, "$"
+09     fin pour
+10 sinon
+11     afficher "Le nombre d'années de placement doit être entre 1 et 5"
+12 fin si                
+
+
+Exercice 1
+----------
+
+Dites ce que chaque algorithme ci-dessous affiche.
+
+a)
+1. pour k <- 1 à 3
+2.     afficher "k = ", k
+3. fin pour
+4. afficher "k après la boucle = ", k
+
+k = 1
+k = 2
+k = 3
+k après la boucle = 4
+ 
+b)
+1. pour k <- 3 à 1 pas de -1
+2.     afficher "k = ", k
+3. fin pour
+4. afficher "k après la boucle = ", k
+
+k = 3
+k = 2
+k = 1
+k après la boucle = 0
+
+c)
+1. pour k <- 1 à 3 pas de 2
+2.     afficher "k = ", k
+3. fin pour
+4. afficher "k après la boucle = ", k
+
+k = 1
+k = 3
+k après la boucle = 5 
+
+d)
+1. somme <- 0
+2. pour k <- 12 à 14
+3.     somme <- somme + 1
+4. fin pour
+5. afficher "somme = ", somme
+
+somme = 3
+
+e)
+1. pour k <- 1 à 2
+2.     somme <- 0
+3.     pour i <- 1 à 3
+4.         somme <- somme + 1
+5.     fin pour
+6.     afficher "somme = ", somme
+7. fin pour
+
+somme = 3
+somme = 3
+
+f)
+1. somme <- 0
+2. pour nb <- 2 à 4
+3.     somme <- somme + nb * nb
+4. fin pour
+5. afficher "somme = ", somme
+
+somme = 29
+
+Exercice 2
+----------
+
+Dites ce que chaque algorithme ci-dessous affiche.
+
+a)
+1. pour k <- 10 à 1
+2.     afficher "k = ", k
+3. fin pour
+4. afficher "k après la boucle = ", k
+
+k après la boucle = 10
+
+b)
+1. pour k <- 1 à 10 pas de -1
+2.     afficher "k = ", k
+3. fin pour
+4. afficher "k après la boucle = ", k
+
+k après la boucle = 1 
+
+Exercice 3
+----------
+
+Supposez que vous êtes professeur et que vous voulez calculer la note moyenne de la classe.
+Ecrire l'algorithme qui:
+Saisit le nombre d'élèves de la classe;
+saisit pour chaque étudiant sa note et la cumule aux notes précédentes;
+et finalement calcule et affiche la moyenne des notes.
+
+01 afficher "Entrez le nombre d'élèves"
+02 lire nbEleves
+03 somme <- 0
+04 pour numeroEleve <- 1 à nbEleves 
+05     afficher "Entrez la note de l'élève numéro ", numeroEleve
+06     lire note
+07     somme <- somme + note
+08 fin pour
+09 moyenne <- somme / nbEleves
+10 afficher "La moyenne est de ", moyenne  
+
+Exercice 4
+----------
+
+Ecrire l'algorithme qui saisit un nombre de moutons de départ et qui 
+calcule le nombre de moutons qui seront toujours à la ferme après 5 mois,
+sachant que 10% du troupeau est vendu à la fin de chaque mois.
+Notez que vous ne pouvez pas vendre une partie de mouton, vous le vendez au complet.
+Par conséquent si le nombre de départ est 100 votre algorithme affichera 57 moutons restant. 
+
+01 nbMoutonsInitial <- 100
+02 pourcentageVente <- 10
+03 nbMoutons <- nbMoutonsInitial
+03 pour mois <- 1 à 5 pas de 1
+04     nbMoutons <- nbMoutons  * (100 - pourcentageVente) div 100
+05 fin pour
+06 afficher "Après 5 mois il reste ", nbMoutons, " à la ferme."
+
+Exercice 5
+----------
+
+Quels seront les résultats affichés par l'algorithme ci-dessous.
+
+1. afficher "Simulation d'une horloge"
+2. afficher " heures : minutes"
+3. pour heures <- 0 à 23
+4.     pour minutes <- 0 à 59
+5.         afficher heures, " : ", minutes
+6.     fin pour 
+7. fin pour
+
+0 : 0
+0 : 1
+...
+0 : 59
+1 : 0
+1 : 1
+...
+1 : 59
+2 : 0
+2 : 1
+...
+22 : 59
+23 : 0
+23 : 1
+...
+23 : 59
+
+Exercice 6
+----------
+
+Modifier l'alogrithme précédent pour afficher l'heure toutes les 10 minutes:
+0 : 0
+0 : 10
+0 : 20
+...
+0 : 50
+1 : 0
+1 : 10
+...
+23 : 50 
+
+Modification ligne 4:
+1. afficher "Simulation d'une horloge"
+2. afficher " heures : minutes"
+3. pour heures <- 0 à 23
+4.     pour minutes <- 0 à 50 pas de 10
+5.         afficher heures, " : ", minutes
+6.     fin pour 
+7. fin pour

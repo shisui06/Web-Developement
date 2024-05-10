@@ -1,0 +1,28 @@
+Exercice 1
+----------
+Coder en PHP (ou traduire la solution en pseudocode)
+de l'exercice 8 du fichier prog-05-exercices-sol.txt :
+Madeleine planifie un voyage au Mexique avec le service aux étudiants.
+Le coût de son voyage est de 1500$ à débourser juste avant son départ.
+Elle dispose actuellement de 1200$.
+Elle prévoit dépenser chaque semaine 5% de son avoir en début de semaine
+et recevoir un salaire hebdomadaire de 100$ le dernier jour de la semaine.
+Elle vous demande d'écrire un algorithme qui affiche son avoir à la fin 
+de chaque semaine et ce jusqu'à ce qu'elle ait atteint un avoir de 1500$.
+Afficher par exemple :
+"Dans 1 semaine(s) le solde = 1240$"
+"Dans 2 semaine(s) le solde = 1278$"
+etc.
+
+
+Premiere semaine 
+avoir =1200$
+depense_sem=5/100 *1200
+salaire_hebdo =100$
+nouv_avoir= avoir -depense_sem + salaire_hebdo
+
+Deuxième semaine
+avoir= 1240$
+depense_sem=5/100 *1240
+salaire_hebdo =100$
+nouv_avoir= avoir -depense_sem + salaire_hebdo
