@@ -1,7 +1,3 @@
-
-
-
-
 let pnom
 let nom
 let tH

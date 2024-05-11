@@ -1,7 +1,9 @@
-let age;
-age  = window.prompt("Entrez votre age","");
-if ( age >= 18 ) { 
-	window.alert ("Age plus grand ou égal à 18 ")
-} else { 
-	window.alert ("Age inférieur à 18");
+let pays;
+pays = window.prompt("Votre pays de résidence ?", "") ;
+if (pays === "Chine") {
+	window.alert("Vous vivez dans le pays le plus peuplé du monde") ;
+} else {
+	window.alert("Vous residez au " + pays + ".");
 }
+
+
