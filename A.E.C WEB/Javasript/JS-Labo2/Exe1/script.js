@@ -1,4 +1,4 @@
-var nb1, nb2;
+let nb1, nb2;
 nb1 = window.prompt("Entrez un premier nombre ","");
 nb2 = window.prompt("Entrez un deuxième nombre ","");
 		

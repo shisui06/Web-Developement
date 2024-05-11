@@ -1,7 +1,7 @@
-let age;
-age  = window.prompt("Entrez votre age","");
-if ( age >= 18 ) { 
-	window.alert ("Age plus grand ou égal à 18 ")
-} else { 
-	window.alert ("Age inférieur à 18");
+var age;
+age = window.parseInt(window.prompt("Entrez votre âge",""));
+if (age >= 18) {
+	window.alert("Âge plus grand ou égal à 18");
+} else {
+	window.alert("Âge plus petit que 18");
 }
