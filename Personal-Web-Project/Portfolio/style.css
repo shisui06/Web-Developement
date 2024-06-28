@@ -70,11 +70,38 @@ header{
     }
     nav{
         display:flex;
+        list-style-type:none;
         align-items: center;
         ul{
+            mobile-toggle{
+                color: var(--base-800);
+                padding: 10px;
+                @
+            }
             display:flex;
             list-style: none;
+            li{
+                display: inline-block;
+                a{
+                    display: inline-block;
+                    padding: 10px 20px;
+                    color: var(--base);
+                    &:hover { 
+                        background: var(--base-100)
+                        border-radius : 10px;
 
+
+                }
+            }
+
+
+        }
+    }
+}
+@media (min-width: 768px) {
+    nav{
+        ul{
+            display: none;
 
         }
     }

@@ -1,0 +1,170 @@
+body{
+    background-color:#FFBFCB;
+    width:100%;
+    margin:0 auto;
+}
+
+* {
+    color:black;
+}
+
+* h1{
+    font-size:20px;
+    color:white;
+    font-weight:normal;
+    margin:0;
+}
+
+* input{
+    background-color:#D3D3D3;
+    border:none;
+    height:30px;
+    font-size:16px;
+}
+
+* input::placeholder{
+    color:#49611F;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* button{
+    background-color:#FF0000;
+    border:none;
+    padding:7px 15px 7px 15px;
+    color:white;
+    border-radius:5px;
+    font-size:16px;
+}
+.nameRow{
+    font-size:18px;
+}
+
+.underName{
+    font-size:15px;
+    color:#6f6f6f;
+}
+
+form{
+    background-color:white;
+    padding:2px;
+    width:800px;
+    margin:10% auto;
+}
+
+
+.entete{
+    background-color:black;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+
+main{
+    margin:25px;
+}
+
+fieldset{
+    border:none;
+    box-sizing:border-box;
+    width:100%;
+    margin:10px 0 10px 0;
+}
+
+fieldset.grid{
+    width:100%;
+    display:grid;
+    justify-content: space-between;
+    grid-template-columns: 15% 1fr 1fr;
+    grid-template-areas: 
+        "nom inputNom inputPrenom"
+        ". underNom underPrenom"
+        "entreprise inputEntreprise inputEntreprise"
+        "courriel inputCourriel inputCourriel"
+        "telephone inputIndicatif inputNumero"
+        ". underIndicatif underNumero"
+    ;
+}
+
+#nom{
+    grid-area:nom;
+}
+
+#inputNom{
+    grid-area:inputNom;
+    width:95%;
+}
+
+#inputPrenom{
+    grid-area:inputPrenom;
+    width:95%;
+    margin-left:2.5%;
+}
+
+#underNom{
+    grid-area:underNom;
+    width:95%;
+}
+
+#underPrenom{
+    grid-area:underPrenom;
+    width:95%;
+    margin-left:2.5%;
+}
+
+#entreprise{
+    grid-area:entreprise;
+}
+
+#inputEntreprise{
+    grid-area:inputEntreprise;
+}
+
+#courriel{
+    grid-area:courriel;
+}
+
+#inputCourriel{
+    grid-area:inputCourriel;
+}
+
+#telephone{
+    grid-area:telephone;
+}
+
+#inputIndicatif{
+    grid-area:inputIndicatif;
+    width:60%;
+}
+
+#inputNumero{
+    grid-area:inputNumero;
+    width:130%;
+    margin-left:-32.5%;
+}
+
+#underIndicatif{
+    grid-area:underIndicatif;
+    width:60%;
+}
+
+#underNumero{
+    grid-area:underNumero;
+    width:130%;
+    margin-left:-32.5%;
+}
+
+.radioField{
+    width:100%;
+    display:flex;
+}
+
+.radioField label{
+    font-size:18px;
+    margin: 9px 40px 0 5px
+}
+
+footer{
+    margin:10px 40px 20px 40px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendrier</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            width: 14.28%;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <p id="mois"></p>
+    <table id="calendrier">
+        <thead>
+            <tr>
+                <th>Dim</th>
+                <th>Lun</th>
+                <th>Mar</th>
+                <th>Mer</th>
+                <th>Jeu</th>
+                <th>Ven</th>
+                <th>Sam</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les lignes du calendrier seront générées par JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        function remplirCalendrier(dateString) {
+            const date = new Date(dateString);
+
+            const moisFrancais = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+            const lesJoursAnglais = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const lesJoursFrancais = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+
+            const annee = date.getFullYear();
+            const mois = date.getMonth();
+            const jour = date.getDate();
+            const premierJourDuMois = new Date(annee, mois, 1);
+            const jourSemainePremierJour = premierJourDuMois.getDay();
+
+            const moisEnFrancais = moisFrancais[mois];
+            document.getElementById("mois").innerText = moisEnFrancais;
+
+            const dernierJourDuMois = new Date(annee, mois + 1, 0).getDate();
+
+            const calendrier = document.getElementById("calendrier").getElementsByTagName("tbody")[0];
+            calendrier.innerHTML = "";
+
+            let ligne = document.createElement("tr");
+            for (let i = 0; i < jourSemainePremierJour; i++) {
+                let celluleVide = document.createElement("td");
+                ligne.appendChild(celluleVide);
+            }
+
+            for (let i = 1; i <= dernierJourDuMois; i++) {
+                if (ligne.children.length === 7) {
+                    calendrier.appendChild(ligne);
+                    ligne = document.createElement("tr");
+                }
+                let cellule = document.createElement("td");
+                cellule.innerText = i;
+                ligne.appendChild(cellule);
+            }
+
+            if (ligne.children.length > 0) {
+                calendrier.appendChild(ligne);
+            }
+        }
+
+        const dateString = "Tue Dec 17 2019 14:21:50 GMT-0500 (heure normale de l’Est nord-américain)";
+        remplirCalendrier(dateString);
+    </script>
+</body>
+</html>

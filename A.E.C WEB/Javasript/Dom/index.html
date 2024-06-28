@@ -1,0 +1,36 @@
+
+<html>
+
+<body>
+  <table>
+    <tr>
+      <td id="case0">0</td>
+      <td id="case1">1</td>
+      <td id="case2">2</td>
+    </tr>
+  </table>
+<script>
+let tab = [-1, -1, -1];
+let i = 0;
+let x;
+
+while(i < 2){
+  x = Math.floor(Math.random() * 3); // Tire des valeurs entières entre 0 et 2
+  console.log(x);
+  if(!tab.includes(x)){
+    tab[x] = x;
+    i++;
+  }
+}
+
+console.log(tab);
+
+for(let i = 0; i < tab.length; i++){
+  if(tab[i] != -1){
+    document.querySelector('#case' + i).innerHTML = 'X';
+  }
+}
+
+</script>
+</body>
+</html>

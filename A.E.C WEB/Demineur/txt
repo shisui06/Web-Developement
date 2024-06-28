@@ -1,0 +1,33 @@
+Modification du tableau
+Reprenez votre projet et cette fois, générez tout le tableau à l’aide Javascript et affichez-le dans la page. Pensez à mettre un id à chacune des cases. L’id peut être seulement un numéro (le numéro de la case, de 0 à 99). Ce sera plus simple si l’id des cases ressemble à “case1”, “case2”…
+
+L’image i(le carré gris) sera aussi affichée grâce à Javascript.
+
+Tableau JS
+Créez un tableau Javascript contenant le même nombre de case que votre tableau HTML.
+
+Initialisez chacune des cases avec un 0.
+
+Tirage aléatoire des mines
+Créez une fonction tirage.
+
+Si votre tableau comporte 100 cases, vous devrez tirer au hasard 10 mines. En fait, 10% des cases doivent contenir des mines.
+
+La fonction Math.random() permet de tirer un nombre au hasard. Math.floor(Math.random() * 99) tirera un nombre au hasard entre 0 et 99.
+
+Vous devez donc le tirer au hasard suffisament de fois pour avoir 10 cases du tableau dans lesquelles vous mettrez un ‘x’ au lieu d’un 0 dans le tableau Javascript.
+
+Attention de traiter le cas où vous auriez tirer au hasard plusieurs fois la même case.
+
+Click sur les cases
+Créez une fonction event.
+
+Associez un gestionnaire d’évènements à chacune des cases de votre tableau.
+
+Créez une fonction bombe qui gère l’évènement lorsqu’un click est effectué sur une case.
+
+Cette fonction récupère l’id de la case, extrait son numéro (fonction substring(num) où num est l’indice auquel se trouve le numéro de la case : idCase.substring(4) donne le numéro si l’id est case1 ou case91).
+
+Elle compare ensuite se numéro avec la case de même indice dans le tableau Javascript contenant les bombes et affiche un message d’alerte si la case contenait une bombe.
+
+Code pour connaitre les mines adjacentes

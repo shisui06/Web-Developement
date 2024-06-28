@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="./index.html" method="get">
+        <header class="entete">
+            <h1>Enregistrement</h1>
+        </header>
+        <main>
+            <fieldset class="grid">
+                <label for="nom et prenom" id="nom" class="nameRow">Nom</label>
+                <input name="nom" type="text" id="inputNom" value="" >
+                <label for="nom" id="underNom" class="underName">Nom</label>
+                <input name="prenom" type="text" id="inputPrenom" value="">
+                <label for="prenom" id="underPrenom" class="underName">Prénom</label>
+            </fieldset>
+            <fieldset class="grid">
+                <label for="entreprise" id="entreprise" class="nameRow">Entreprise</label>
+                <input name="entreprise" type="text" id="inputEntreprise" value="">
+            </fieldset>
+            <fieldset class="grid">
+                <label for="courriel" id="courriel" class="nameRow">Courriel</label>
+                <input name="courriel" type="email" id="inputCourriel" value="" placeholder="nom@exemple.com">
+            </fieldset>
+            <fieldset class="grid">
+                <label for="indicatif et telephone" id="telephone" class="nameRow">Téléphone</label>
+                <input name="indicatif" type="tel" id="inputIndicatif" value="" maxlength="3">
+                <label for="indicatif" id="underIndicatif" class="underName">Indicatif</label>
+                <input name="numero" value="" type="tel" id="inputNumero">
+                <label for="numero" id="underNumero" class="underName">Numéro</label> 
+            </fieldset>
+            <fieldset class="radioField">
+                <legend class="nameRow">Êtes-vous déjà client ?</legend>
+                <input type="radio" name="reponse" value="oui">
+                <label>Oui</label>
+                <input type="radio" name="reponse" value="non">
+                <label>Non</label>
+            </fieldset>
+        </main>
+        <footer>
+            <button>Soumettre</button>
+        </footer>
+    </form>
+</body>
+</html> 

@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Fonction qui retourne un résultat</title>
+<script type="text/javascript">
+
+function moyenne ( a,b,c,d ) {
+	let resultat;
+	resultat = ( a + b + c + d ) / 4 ;
+	return resultat ;
+}
+
+function go () {
+	nb1 = parseInt(prompt("Entrez un premier nombre"));
+	nb2 = parseInt(prompt("Entrez un 2e nombre"));
+	nb3 = parseInt(prompt("Entrez un 3e nombre"));
+	nb4 = parseInt(prompt("Entrez un 4e nombre"));
+
+	//appel à la fonction moyenne pour calculer le resultat
+	result = moyenne(nb1, nb2, nb3, nb4);
+	
+	alert("La moyenne est " + result);
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="test" onclick="go()" />
+</body>
+</html>
