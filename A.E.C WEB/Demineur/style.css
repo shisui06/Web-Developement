@@ -1,58 +1,59 @@
-.conteneur{
+
+.conteneur {
     display: grid;
     grid-template-rows: 4rem 100fr 3rem;
     grid-template-columns: 10rem 20rem 12rem;
-    border: 1px solid black
+    border: 1px solid black;
 }
-.nav{
+.nav {
     background-color: beige;
     padding-top: 1rem;
-    grid-column: 1 /4;
+    grid-column: 1 / 4;
     padding-left: 9rem;
     padding-bottom: 1rem;
 }
-.lien{
+.lien {
     padding-left: 1rem;
     grid-column: 1;
     grid-row: 2;
 }
-.grille{
+.grille {
     grid-column: 2;
     grid-row: 2;
     padding-left: 3rem;
 }
-.regles{
+.regles {
     grid-column: 3;
     grid-row: 2;
 }
-.format{
-    grid-column: 1/4;
+.format {
+    grid-column: 1 / 4;
     grid-row: 3;
     padding-left: 17rem;
     padding-top: 1rem;
     background-color: beige;
 }
-td, tr, img{
+td, tr, img {
     padding: 0;
     margin: 0;
     border: 0;
 }
-td{
+td {
     width: 20px;
     height: 20px;
 }
-table{
+table {
     background-color: lightgray;
 }
-.btn{
+.btn {
     background: url(./new.png);
     background-image: url(./new.png);
     padding-top: ;
 }
-.champs{
+.champs {
     height: 25px;
     padding-bottom: px;
 }
-.image{
+.image {
     height: 20px;
 }
