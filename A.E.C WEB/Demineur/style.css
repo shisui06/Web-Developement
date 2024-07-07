@@ -1,59 +1,25 @@
-
 .conteneur {
     display: grid;
-    grid-template-rows: 4rem 100fr 3rem;
-    grid-template-columns: 10rem 20rem 12rem;
-    border: 1px solid black;
-}
-.nav {
-    background-color: beige;
-    padding-top: 1rem;
-    grid-column: 1 / 4;
-    padding-left: 9rem;
-    padding-bottom: 1rem;
-}
-.lien {
-    padding-left: 1rem;
-    grid-column: 1;
-    grid-row: 2;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
 }
 .grille {
-    grid-column: 2;
-    grid-row: 2;
-    padding-left: 3rem;
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    gap: 2px;
+    justify-content: center;
 }
-.regles {
-    grid-column: 3;
-    grid-row: 2;
+.case {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
 }
-.format {
-    grid-column: 1 / 4;
-    grid-row: 3;
-    padding-left: 17rem;
-    padding-top: 1rem;
-    background-color: beige;
-}
-td, tr, img {
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-td {
-    width: 20px;
-    height: 20px;
-}
-table {
-    background-color: lightgray;
-}
-.btn {
-    background: url(./new.png);
-    background-image: url(./new.png);
-    padding-top: ;
-}
-.champs {
-    height: 25px;
-    padding-bottom: px;
-}
-.image {
-    height: 20px;
-}
+.case:hover {
+    background-color: #ddd;

@@ -1,66 +1,76 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const taille = 100;
-  const minesCount = 10;
-  const tableau = new Array(taille).fill(0);
 
-  // Génération du tableau HTML
-  const table = document.getElementById('minesweeper');
-  for (let i = 0; i < 10; i++) {
-      const row = document.createElement('tr');
-      for (let j = 0; j < 10; j++) {
-          const cell = document.createElement('td');
-          const id = i * 10 + j;
-          cell.id = 'case' + id;
-          cell.addEventListener('click', function () {
-              bombe(id);
-          });
-          row.appendChild(cell);
-      }
-      table.appendChild(row);
-  }
+// JavaScript pour générer la grille et gérer les évènements
+const grille = [];
+const taille = 100; // taille du tableau (10x10)
+const long = 10; // longueur de chaque ligne
 
-  // Tirage aléatoire des mines
-  function tirage() {
-      let minesPlaced = 0;
-      while (minesPlaced < minesCount) {
-          const randomIndex = Math.floor(Math.random() * taille);
-          if (tableau[randomIndex] !== 'x') {
-              tableau[randomIndex] = 'x';
-              minesPlaced++;
-          }
-      }
-  }
+// Génération de la grille
+const tableau = document.getElementById('tableau');
 
-  // Calcul des mines adjacentes
-  function calculMinesAdjacentes() {
-      const long = 10; // Longueur d'une ligne
-      for (let i = 0; i < taille; i++) {
-          let nbBombe = 0;
-          if (tableau[i] !== 'x') {
-              if (tableau[i - long] === 'x' && i >= long) nbBombe++;
-              if (tableau[i - long + 1] === 'x' && i >= long && (i + 1) % long !== 0) nbBombe++;
-              if (tableau[i + 1] === 'x' && (i + 1) % long !== 0) nbBombe++;
-              if (tableau[i + long + 1] === 'x' && i < taille - long && (i + 1) % long !== 0) nbBombe++;
-              if (tableau[i + long] === 'x' && i < taille - long) nbBombe++;
-              if (tableau[i + long - 1] === 'x' && i < taille - long && i % long !== 0) nbBombe++;
-              if (tableau[i - 1] === 'x' && i % long !== 0) nbBombe++;
-              if (tableau[i - long - 1] === 'x' && i >= long && i % long !== 0) nbBombe++;
-              tableau[i] = nbBombe;
-          }
-      }
-  }
+for (let i = 0; i < taille; i++) {
+    const caseElement = document.createElement('div');
+    caseElement.classList.add('case');
+    caseElement.id = 'case' + (i + 1); // ids de case1 à case100
 
-  // Fonction appelée lors d'un clic sur une case
-  function bombe(id) {
-      const caseIndex = parseInt(id);
-      if (tableau[caseIndex] === 'x') {
-          alert('Bombe !');
-      } else {
-          document.getElementById('case' + id).textContent = tableau[caseIndex];
-      }
-  }
+    // Gestion de clic sur les cases
+    caseElement.addEventListener('click', function() {
+        bombe(this.id);
+    });
 
-  // Initialisation du jeu
-  tirage();
-  calculMinesAdjacentes();
-});
+    tableau.appendChild(caseElement);
+    grille.push(0); // initialisation avec 0
+}
+
+// Fonction pour placer les mines aléatoirement
+function tirage() {
+    let minesPlaces = 0;
+    while (minesPlaces < 10) {
+        const index = Math.floor(Math.random() * taille);
+        if (grille[index] !== 'x') {
+            grille[index] = 'x';
+            minesPlaces++;
+        }
+    }
+}
+
+// Fonction pour gérer l'évènement de clic sur une case
+function bombe(idCase) {
+    const numeroCase = parseInt(idCase.substring(4)) - 1; // numéro de 0 à 99
+
+    if (grille[numeroCase] === 'x') {
+        alert('Boom! Vous avez touché une mine!');
+        // Gérer la fin du jeu ici
+    } else {
+        // Afficher le nombre de mines adjacentes ou laisser vide
+        const nbMinesAdjacentes = calculerMinesAdjacentes(numeroCase);
+        document.getElementById(idCase).innerText = nbMinesAdjacentes !== 0 ? nbMinesAdjacentes : '';
+        document.getElementById(idCase).style.backgroundColor = '#fff'; // Révéler la case
+    }
+}
+
+// Fonction pour calculer le nombre de mines adjacentes à une case
+function calculerMinesAdjacentes(index) {
+    let nbBombe = 0;
+    if (grille[index] !== 'x') {
+        if (index >= long && grille[index - long] === 'x')
+            nbBombe++;
+        if (index >= long && (index + 1) % long !== 0 && grille[index - long + 1] === 'x')
+            nbBombe++;
+        if ((index + 1) % long !== 0 && grille[index + 1] === 'x')
+            nbBombe++;
+        if (index <= taille - long - 1 && (index + 1) % long !== 0 && grille[index + long + 1] === 'x')
+            nbBombe++;
+        if (index <= taille - long - 1 && grille[index + long] === 'x')
+            nbBombe++;
+        if (index <= taille - long - 1 && index % long !== 0 && grille[index + long - 1] === 'x')
+            nbBombe++;
+        if (index % long !== 0 && grille[index - 1] === 'x')
+            nbBombe++;
+        if (index >= long && index % long !== 0 && grille[index - long - 1] === 'x')
+            nbBombe++;
+    }
+    return nbBombe;
+}
+
+// Initialisation du jeu au chargement de la page
+tirage();
