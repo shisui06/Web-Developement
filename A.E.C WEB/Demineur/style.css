@@ -1,59 +1,80 @@
 
-.conteneur {
-    display: grid;
-    grid-template-rows: 4rem 100fr 3rem;
-    grid-template-columns: 10rem 20rem 12rem;
-    border: 1px solid black;
-}
-.nav {
-    background-color: beige;
-    padding-top: 1rem;
-    grid-column: 1 / 4;
-    padding-left: 9rem;
-    padding-bottom: 1rem;
-}
-.lien {
-    padding-left: 1rem;
-    grid-column: 1;
-    grid-row: 2;
-}
-.grille {
-    grid-column: 2;
-    grid-row: 2;
-    padding-left: 3rem;
-}
-.regles {
-    grid-column: 3;
-    grid-row: 2;
-}
-.format {
-    grid-column: 1 / 4;
-    grid-row: 3;
-    padding-left: 17rem;
-    padding-top: 1rem;
-    background-color: beige;
-}
-td, tr, img {
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-td {
-    width: 20px;
-    height: 20px;
-}
-table {
-    background-color: lightgray;
-}
-.btn {
-    background: url(./new.png);
-    background-image: url(./new.png);
-    padding-top: ;
-}
-.champs {
-    height: 25px;
-    padding-bottom: px;
-}
-.image {
-    height: 20px;
-}
+        body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+                "nav nav nav"
+                "lien conteneur regles"
+                "footer footer footer";
+            height: 100vh;
+            margin: 0;
+            gap: 10px;
+        }
+        nav {
+            grid-area: nav;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 10px;
+            align-items: center;
+            padding: 1rem;
+            background-color: beige; 
+        }
+        .champs1 {
+            width: 50%;
+            text-align: center;
+        }
+        .champs2 {
+            width: 50%;
+            text-align: center;
+        }
+        .conteneur {
+            grid-area: conteneur;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        #tablemine {
+            border-collapse: collapse;
+        }
+        #tablemine td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0; 
+        }
+        .regles {
+            grid-area: regles;
+            padding: 1rem;
+        }
+        .format {
+            grid-area: footer;
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            gap: 10px; 
+            background-color: beige; 
+        }
+        
+        .lien {
+            grid-area: lien;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+   
+        .btn {
+            padding: 0; 
+            border: none; 
+            background: none; 
+        }
+        
+        .btn .image {
+            width: 24px; 
+            height: 24px; 
+        }
