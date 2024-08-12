@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+let tableauA = [10, 8, 9, 89, 32, 3, 76, 34];
+
+let min = tableauA[0]; 
+
+for(i=0; i<tableauA.length; i++){ 
+    for (let j = 1; j < tableauA.length; j++) {
+            if (tableauA[j] < tableauA[i]) {
+                
+                tableauA[i] = 100000;
+               
+            }
+        }
+       
+        let tableauB = [min]
+        document.write("La valeur min est : " + min);
+}
+*/
+let tableauA = [10, 8, 9, 89, 32, 3, 76, 34];
+let tableauB = [];
+
+while (tableauB.length < tableauA.length) {
+    // Initialiser le minimum avec une valeur très grande
+    let min = Infinity;
+    let minIndex = -1;
+
+    // Chercher le minimum dans tableauA
+    for (let i = 0; i < tableauA.length; i++) {
+        if (tableauA[i] < min) {
+            min = tableauA[i];
+            minIndex = i;
+        }
+    }
+
+    // Mettre le minimum trouvé dans tableauB
+    tableauB.push(min);
+
+    // Remplacer le minimum dans tableauA par une valeur très grande
+    tableauA[minIndex] = Infinity;
+}
+
+console.log("Le tableau trié est : " + tableauB);
+document.write("Le tableau trié est : " + tableauB.join(", "));
+
+</script>
+</body>
+</html>
