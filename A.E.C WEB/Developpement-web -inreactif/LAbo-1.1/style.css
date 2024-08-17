@@ -1,0 +1,90 @@
+/* Définition des propriétés personnalisées (variables CSS) */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #ecf0f1;
+    --font-size-base: 16px;
+}
+
+/* Styles de base */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul li a.active {
+    text-decoration: underline;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+.recette img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.instructions {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Pseudo-classes */
+a:hover {
+    color: #3498db;
+}
+
+a:active {
+    color: #2980b9;
+}
+
+/* Media queries pour le design adaptatif */
+@media screen and (min-width: 768px) {
+    .recette {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .recette img {
+        width: 50%;
+    }
+
+    .instructions {
+        width: 50%;
+    }
+}
