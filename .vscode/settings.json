@@ -15,5 +15,6 @@
             "connectionTimeout": 60,
             "askForPassword": true
         }
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

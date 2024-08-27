@@ -1,0 +1,29 @@
+/* Définition des propriétés personnalisées (variables CSS) */
+:root {
+    --primary-color: #2c3e50;
+}
+
+/* Styles de base */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+}
+
+.container {
+    width: 90%;
+}
+
+
+/* Media queries pour le design adaptatif */
+@media screen and (min-width: 768px) {
+
+}
+
+/* Exemple d'utilisation de @supports */
+@supports (display: grid) {
+    .recette {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
