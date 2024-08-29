@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test Selectioner</title>
+  
+        
+</head>
+<body>
+    <script>
+        function afterCheck() {
+            
+            alert("Checkbox Selectioner");
+        }
+    </script>
+    
+        <script>
+
+function calculateTax(montant, province) {
+    let taxes;
+    
+    if (province === 'Quebec') {
+        taxes = 0.14;
+    } else if (province === 'Ontario') {
+        taxes = 0.12;
+    } else {
+        return "non calculable";
+    }
+    
+    return montant * taxes;
+}
+
+        </script>
+        <script>
+
+function triertableau(tableauA) {
+    let tableauB = [];
+    let nombreElements = tableauA.length;
+
+    for (let i = 0; i < nombreElements; i++) {
+        let minIndex = 0;
+        for (let j = 1; j < tableauA.length; j++) {
+            if (tableauA[j] !== -1 && (tableauA[minIndex] === -1 || tableauA[j] < tableauA[minIndex])) {
+                minIndex = j;
+            }
+        }
+
+        
+        tableauB.push(tableauA[minIndex]);
+
+        
+        tableauA[minIndex] = -1;
+    }
+
+    
+    return tableauB;
+}
+
+
+let tableauA = [9, 7, 8, 3, 1, 10];
+let tableauTrie = sortable(tableauA);
+
+console.log(tableauTrie);
+
+
+        </script>
+        <script>
+            
+const employes = [
+  ['678', 'Primaire'],
+  ['032', 'Secondaire'],
+  ['557', 'Universitaire'],
+  
+];
+
+
+const compteScolarite = new Map();
+
+employes.forEach(employe => {
+  const niveau = employe[1];
+
+  
+  if (compteScolarite.has(niveau)) {
+    compteScolarite.set(niveau, compteScolarite.get(niveau) + 1);
+  } else {
+    compteScolarite.set(niveau, 1);
+  }
+});
+
+
+compteScolarite.forEach((nombre, niveau) => {
+  console.log(`${niveau.charAt(0).toUpperCase() + niveau.slice(1)} : ${nombre}`);
+});
+
+        </script>
+        
+        
+        
+        
+        <script>
+          let map2 = new Map
+          [clé1, clé2]
+          (functio geern)
+          let totalPrimaires =0;
+          let toalCegep
+        </script>
+    <input type="checkbox" onclick="afterCheck()">
+</body>
+</html>
+
+
