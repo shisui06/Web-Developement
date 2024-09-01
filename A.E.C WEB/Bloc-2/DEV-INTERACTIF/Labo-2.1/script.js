@@ -1,7 +1,6 @@
 let animaux = [];
 let isListView = true;
 
-// Charger les données des animaux depuis le fichier JSON
 fetch('animaux.json')
     .then(response => response.json())
     .then(data => {
@@ -32,9 +31,14 @@ function toggleAnimal(type) {
     const activeFilters = Array.from(document.querySelectorAll('.filter-button.active'))
         .map(button => button.id.replace('filter-', ''));
 
+    // Vérifier si aucun filtre n'est actif
+    const showNoAnimals = activeFilters.length === 0;
+
     animaux.forEach(animal => {
         const animalElement = document.querySelector(`.carte-animal.${animal.type}`);
-        if (activeFilters.includes(animal.type)) {
+        if (showNoAnimals) {
+            animalElement.style.display = 'none';
+        } else if (activeFilters.includes(animal.type)) {
             animalElement.style.display = 'flex';
         } else {
             animalElement.style.display = 'none';

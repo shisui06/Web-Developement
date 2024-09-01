@@ -23,12 +23,20 @@ function renderAnimals() {
             </div>
         `;  
     }).join('');
+    
+    // Initialisation de la vue en liste
+    animalContainer.classList.add('list-view');
 }
 
 function toggleAnimal(type) {
-    // document.querySelectorAll(`...`)
-
-    console.log(`Filtre changé pour ${type}`)
+    document.querySelectorAll('.carte-animal').forEach(card => {
+        if (type === 'tous' || card.classList.contains(type)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    console.log(`Filtre changé pour ${type}`);
 }
 
 function afficherModal(animal) {
@@ -53,12 +61,28 @@ function fermerModal() {
 
 // Toggle entre vue liste et grille
 document.getElementById('toggle-view').addEventListener('click', function() {
-    console.log(`Changement de style d'affichage !`)
+    isListView = !isListView;
+    const animalContainer = document.getElementById('animal-container');
+    if (isListView) {
+        animalContainer.classList.remove('grid-view');
+        animalContainer.classList.add('list-view');
+        this.textContent = 'Vue en grille';
+    } else {
+        animalContainer.classList.remove('list-view');
+        animalContainer.classList.add('grid-view');
+        this.textContent = 'Vue en liste';
+    }
+    console.log(`Changement de style d'affichage : ${isListView ? 'liste' : 'grille'}`);
 });
 
 // Contrôle de la taille des cartes en mode grille
 document.getElementById('grid-size').addEventListener('input', function() {
-    console.log(`Taille de carte changée !`)
+    const size = this.value;
+    document.querySelectorAll('.carte-animal').forEach(card => {
+        card.style.width = `${size}px`;
+        card.style.height = `${size}px`;
+    });
+    console.log(`Taille de carte changée à ${size}px`);
 });
 
 // Initialisation
