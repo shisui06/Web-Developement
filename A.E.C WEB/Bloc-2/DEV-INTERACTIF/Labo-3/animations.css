@@ -1,0 +1,98 @@
+/* Animation de la description */
+.art-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+.art-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.art-info {
+    padding: 1rem;
+}
+
+/* Animation pour le chargement des éléments de la galerie */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.art-item {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Styles de base pour les conteneurs d'animation */
+.art-animation {
+    width: 95%;
+    height: 200px;
+
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #3498db;
+
+    margin: 5px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 1. Rotation simple */
+.rotation {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+}
+
+/* 2. Pulsation */
+.pulsating {
+    width: 100px;
+    height: 100px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+}
+
+/* 3. Rebond */
+.bouncing {
+    width: 50px;
+    height: 50px;
+    background-color: #34495e;
+    border-radius: 50%;
+}
+
+/* 4. Gradient animé */
+.gradient-shift {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+    background-size: 600% 600%;
+}       
+
+
+/* 5. Points dansants */
+.points {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.point {
+    width: 20px;
+    height: 20px;
+    background-color: #3498db;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+/*.point:nth-child(...) */

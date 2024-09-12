@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Date</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-group">
+        <label for="monthInput">Mois :</label>
+        <input type="text" id="monthInput" oninput="autoCompleteMonth()" 
+               onmouseover="showHelp('mois')" onmouseout="hideHelp()">
+    </div>
+
+    <div class="form-group">
+        <label for="daySelect">Jour :</label>
+        <select id="daySelect" disabled 
+                onmouseover="showHelp('jour')" onmouseout="hideHelp()"></select>
+    </div>
+
+    <div id="help">Passez la souris sur un champ pour obtenir de l'aide.</div>
+
+    <button id="submitBtn" onclick="handleSubmit()" 
+            onmouseover="showHelp('submit')" onmouseout="hideHelp()" disabled>Soumettre</button>
+<script src="script.js"></script>
+</body>
+</html>

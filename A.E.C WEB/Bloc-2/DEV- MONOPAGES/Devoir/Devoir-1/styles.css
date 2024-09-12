@@ -1,0 +1,23 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+#help {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+#submitBtn {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#submitBtn:disabled {
+    background-color: #ccc;
+}

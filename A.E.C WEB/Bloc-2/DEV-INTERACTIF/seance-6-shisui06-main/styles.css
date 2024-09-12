@@ -1,0 +1,53 @@
+:root{ 
+    --card-color: #ABC;
+    --card-radius: 5%;
+    --feature-image-size: 40px;
+    --text-color-main: #333;
+    --text-color-secondary: #666;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.product-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ABC;
+    max-width: 1200px;
+    border-radius: 5%;
+    padding:20px;
+}
+
+.product-title {
+    margin-top: 0;
+    text-align: center;
+    color: var(--text-color-main);
+}
+
+.product-image {
+    border-radius: var(--card-radius);
+}
+
+.product-description {
+    color: var(--text-color-main);
+    line-height: 1.6;
+}
+
+.product-description p {
+    text-align: justify;
+}
+
+
+.feature img {
+    width: var(--feature-image-size);
+    height: var(--feature-image-size);
+    padding-right: 0.4em;
+}
+
+.feature {
+    color: var(--text-color-secondary)
+}

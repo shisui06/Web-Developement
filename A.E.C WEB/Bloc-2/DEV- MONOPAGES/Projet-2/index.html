@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA PEPINIERE</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+
+    <header style="background-color: #5ef943; padding: 10px; text-align: center;">
+        <h1 style="margin: 0;">MA PEPINIERE</h1>
+        <nav style="margin-top: 20px;">
+            <a href="#" id="home-link">Accueil</a> |
+            <a href="#">Arbres</a> |
+            <a href="#">Fleurs</a> |
+            <a href="#">Materiel</a> |
+            <input type="text" id="search" placeholder="Enter Search criteria">
+            <button id="search-btn">Search</button>
+            <a href="#" id="cart-link">Cart</a> |
+        </nav>
+    </header>
+
+    <main style="padding: 20px;">
+        <section id="product-list">
+        </section>
+
+        <div id="product-modal">
+            <span id="close-product-modal" style="cursor: pointer; float: right;">X</span>
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <div id="modal-images"></div>
+            <p id="modal-price"></p>
+            <p id="modal-stock"></p>
+            <label for="modal-quantity">Quantity:</label>
+            <input type="number" id="modal-quantity" min="1" value="1">
+            <button id="modal-add-to-cart">Ajouter au panier</button>
+        </div>
+
+        <div id="cart-modal">
+            <span id="close-cart-modal" style="cursor: pointer; float: right;">X</span>
+            <h2>Mon Panier</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Prix Unitaire</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>Total</b></td>
+                        <td id="cart-subtotal">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>TVA (5%)</b></td>
+                        <td id="cart-tva">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>TVQ (9.975%)</b></td>
+                        <td id="cart-tvq">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>À payer</b></td>
+                        <td id="cart-total"><strong>$0.00</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button id="checkout">Checkout</button>
+        </div>
+
+        <div id="details-frame">
+            <iframe id="details-iframe" name="details-iframe"></iframe>
+            <button id="close-details-frame">Close</button>
+        </div>
+    </main>
+
+    <div id="context-menu">
+        <button id="view-details">Voir détail</button>
+        <button id="view-wikipedia">Wikipedia</button>
+        <button id="add-to-cart">Ajouter au panier</button>
+    </div>
+
+    <footer style="background-color: #f8f9fa; text-align: center; padding: 10px;">
+        <p id="footer-message">Merci pour votre achat!</p>
+    </footer>
+
+   <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compléter l'inscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        .radio-group {
+            display: flex;
+            margin-bottom: 10px;
+            margin-left: 100px;
+        }
+        .radio-group label {
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+
+            
+}
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bienvenue</h2>
+        <form id="registrationForm">
+            <p id="welcomeMessage"></p>
+            <label for="firstName">Prénom:</label>
+            <input type="text" id="firstName" placeholder="Entrée votre prénom" required>
+
+            <label for="lastName">Nom de famille:</label>
+            <input type="text" id="lastName" placeholder="Entrée votre nom" required>
+
+            <label for="dob">Date de naissance:</label>
+            <input type="date" id="dob" required>
+
+            <label>Etes-vous un ancien membre ?</label>
+            <div class="radio-group">
+                <input type="radio" id="returningYes" name="returning" value="yes"> 
+                <label for="returningYes">Oui</label>
+                <input type="radio" id="returningNo" name="returning" value="no" checked> 
+                <label for="returningNo">Non</label>
+            </div>
+            <div id="membershipYearContainer" style="display:none;">
+                <label for="membershipYear">Année de fin de l’ancien membership :</label>
+                <select id="membershipYear"></select>
+            </div>
+
+            <label for="phone">Téléphone (optionel):</label>
+            <input type="tel" id="phone" placeholder="999-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="agree" required> J’ai lu et accepté les règles du club.
+            </label>
+            
+
+            <input type="submit" value="Submit" disabled>
+
+            <p class="error" id="ageError">Vous devez avoir 18 ans et plus.</p>
+            <p class="error" id="emailError">Ce email est déja enregistrer.</p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let urlParams = new URLSearchParams(window.location.search);
+            let email = urlParams.get('email');
+            document.getElementById('welcomeMessage').textContent = 'Welcome ' + email;
+
+            let dobInput = document.getElementById('dob');
+            let returningYes = document.getElementById('returningYes');
+            let membershipYearContainer = document.getElementById('membershipYearContainer');
+            let membershipYearSelect = document.getElementById('membershipYear');
+
+            
+            dobInput.addEventListener('change', function() {
+                let dob = new Date(this.value);
+                let age = new Date().getFullYear() - dob.getFullYear();
+                if (age < 18) {
+                    alert("You must be at least 18 years old to register.");
+                    window.location.href = 'main.html';
+                } else {
+                    document.getElementById('ageError').style.display = 'none';
+                    checkReturningMember();
+                }
+            });
+
+            
+            returningYes.addEventListener('change', checkReturningMember);
+
+            document.getElementById('returningNo').addEventListener('change', function() {
+                if (this.checked) {
+                    membershipYearContainer.style.display = 'none';
+                }
+            });
+
+            function checkReturningMember() {
+                if (returningYes.checked && dobInput.value) {
+                    membershipYearContainer.style.display = 'block';
+                    populateMembershipYears();
+                }
+            }
+
+            function populateMembershipYears() {
+                let dob = new Date(dobInput.value);
+                let currentYear = new Date().getFullYear();
+                let startYear = dob.getFullYear() + 18;
+                membershipYearSelect.innerHTML = '';
+                for (let i = startYear; i <= currentYear; i++) {
+                    let option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = i;
+                    membershipYearSelect.appendChild(option);
+                }
+            }
+
+            let formElements = document.querySelectorAll('input[required], input[type="checkbox"]');
+            formElements.forEach(function(element) {
+                element.addEventListener('input', checkFormValidity);
+            });
+
+            function checkFormValidity() {
+                let allFilled = true;
+                formElements.forEach(function(element) {
+                    if (!element.value || (element.type === 'checkbox' && !element.checked)) {
+                        allFilled = false;
+                    }
+                });
+                document.querySelector('input[type="submit"]').disabled = !allFilled;
+            }
+
+            document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                if (email === 'existing@example.com') {
+                    document.getElementById('emailError').style.display = 'block';
+                } else {
+                    let firstName = document.getElementById('firstName').value;
+                    let lastName = document.getElementById('lastName').value;
+                    window.location.href = 'main.html?name=' + firstName + ' ' + lastName;
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

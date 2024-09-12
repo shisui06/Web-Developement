@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie d'Art Interactive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="200" height="100" viewBox="0 0 200 100">
+                <path d="M20,50 Q50,20 80,50 T140,50" fill="none" stroke="#333" stroke-width="5">
+                </path>
+                <text x="50" y="80" font-family="Arial" font-size="24" fill="#333">Gallerie d'Art</text>
+            </svg>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="gallery">
+            <h1>Notre Collection</h1>
+            <div class="gallery-grid">
+                <div class="art-item">
+                    <div class="art-animation">
+                        <div class="rotation"></div>
+                    </div>
+                    <div class="art-info">
+                        <h3>Rotation Simple</h3>
+                        <p>Artiste: Tourneur Infini</p>
+                    </div>
+                </div>
+                <div class="art-item">
+                    <div class="art-animation">
+                        <div class="pulsating"></div>
+                    </div>
+                    <div class="art-info">
+                        <h3>Pulsation</h3>
+                        <p>Artiste: Cœur Battant</p>
+                    </div>
+                </div>
+                <div class="art-item">
+                    <div class="art-animation">
+                        <div class="bouncing"></div>
+                    </div>
+                    <div class="art-info">
+                        <h3>Rebond</h3>
+                        <p>Artiste: Sauteur Élastique</p>
+                    </div>
+                </div>
+                <div class="art-item">
+                    <div class="art-animation">
+                        <div class="gradient-shift"></div>
+                    </div>
+                    <div class="art-info">
+                        <h3>Gradient Animé</h3>
+                        <p>Artiste: Spectre Mouvant</p>
+                    </div>
+                </div>
+                <div class="art-item">
+                    <div class="art-animation">
+                        <div class="points">
+                            <div class="point"></div>
+                            <div class="point"></div>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="art-info">
+                        <h3>Points Dansants</h3>
+                        <p>Artiste: Trio Rythmique</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Galerie d'Art Interactive. Tous droits réservés.</p>
+    </footer>
+
+    <div id="back-to-top" title="Retour en haut">↑</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
