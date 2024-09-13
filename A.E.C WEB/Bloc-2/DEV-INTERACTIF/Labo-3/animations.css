@@ -4,8 +4,8 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
 }
-
 
 .art-item img {
     width: 100%;
@@ -13,7 +13,7 @@
     display: block;
 }
 
-.art-info {
+.art-info5 {
     padding: 1rem;
 }
 
@@ -47,6 +47,28 @@
     border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
+
+.art-info5 {
+    opacity: 0; /* Cache le texte au départ */
+    transition: opacity 0.3s ease; /* Transition pour l'apparition en 0.3s */
+    position: absolute; /* Positionne au-dessus de l'image */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    color: white; /* Texte blanc pour bien contraster */
+    padding: 0.5rem;
+    visibility: hidden; /* Empêche l'interaction lorsque caché */
+    text-align: center;
+}
+
+.art-item {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 /* 1. Rotation simple */
 .rotation {
     width: 100px;

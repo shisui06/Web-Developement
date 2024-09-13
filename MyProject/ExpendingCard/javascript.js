@@ -1,1 +1,1 @@
-const panels = docuement.querySelector('panel')
+const panels = document.querySelector('panel')

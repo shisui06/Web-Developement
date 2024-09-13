@@ -1,0 +1,14 @@
+
+        fetch(url, { method: 'GET' })
+            .then(response => response.json())
+            .then(data => {
+                // Printing our response
+                console.log(data);
+            })
+            .catch(errorMsg => { console.log(errorMsg); });
+
+
+Ex : API qui affiche les pays éventuels pour un nom
+
+url = 'https://api.nationalize.io?name=Toufik'; fetch(url, { method: 'GET' }) .then(response => response.json()) 
+//Spécifie que la réponse est de forme JSON .then(data => { //data est la variable contenant le retour de l’API // tranforme le JSON en text pays = JSON.stringify(data, null, "\t"); let resultDiv = document.getElementById("resultDivId") resultDiv.value = pays; }) .catch(errorMsg => { console.log(errorMsg); });
