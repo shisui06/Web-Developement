@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nationalize API</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Origine des noms</h2>
+
+<label for="nameInput">Entrez un nom:</label>
+<input type="text" id="nameInput" placeholder="Saisissez un nom">
+<button onclick="fetchNationality()">Chercher</button>
+
+<table id="resultTable" style="display:none;">
+    <thead>
+        <tr>
+            <th>Pays</th>
+            <th>Probabilité</th>
+        </tr>
+    </thead>
+    <tbody id="resultBody">
+    </tbody>
+</table>
+
+<script>
+    function fetchNationality() {
+        const name = document.getElementById('nameInput').value;
+        const url = `https://api.nationalize.io?name=${name}`;
+        
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const resultTable = document.getElementById('resultTable');
+            const resultBody = document.getElementById('resultBody');
+            
+            resultBody.innerHTML = ''; // Clear any previous results
+
+            if (data.country.length > 0) {
+                data.country.forEach(countryData => {
+                    const row = document.createElement('tr');
+                    const countryCell = document.createElement('td');
+                    const probabilityCell = document.createElement('td');
+                    
+                    countryCell.textContent = countryData.country_id;
+                    probabilityCell.textContent = (countryData.probability * 100).toFixed(2) + '%';
+
+                    row.appendChild(countryCell);
+                    row.appendChild(probabilityCell);
+                    resultBody.appendChild(row);
+                });
+                resultTable.style.display = 'table'; // Show the table
+            } else {
+                resultBody.innerHTML = '<tr><td colspan="2">Aucun résultat trouvé</td></tr>';
+                resultTable.style.display = 'table';
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+    }
+</script>
+
+</body>
+</html>
