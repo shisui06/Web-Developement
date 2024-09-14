@@ -4,8 +4,8 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    
 }
+
 
 .art-item img {
     width: 100%;
@@ -13,9 +13,10 @@
     display: block;
 }
 
-.art-info5 {
+.art-info {
     padding: 1rem;
 }
+
 
 /* Animation pour le chargement des éléments de la galerie */
 @keyframes fadeIn {
@@ -47,42 +48,46 @@
     border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-
-.art-info5 {
-    opacity: 0; /* Cache le texte au départ */
-    transition: opacity 0.3s ease; /* Transition pour l'apparition en 0.3s */
-    position: absolute; /* Positionne au-dessus de l'image */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    color: white; /* Texte blanc pour bien contraster */
-    padding: 0.5rem;
-    visibility: hidden; /* Empêche l'interaction lorsque caché */
-    text-align: center;
-}
-
-.art-item {
-    position: relative;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
 /* 1. Rotation simple */
-.rotation {
+.rotation{
+
     width: 100px;
     height: 100px;
-    background-color: #3498db;
+    background-color: #3498db; /* Blue color */
+    margin: 50px auto; /* Center the square */
+    animation: rotateSquare 4s infinite linear; /* Infinite rotation */
+}
+@keyframes rotateSquare {
+    from {
+        transform: rotate(0deg); /* Starting point */
+    }
+    to {
+        transform: rotate(360deg); /* End point (full rotation) */
+    }
 }
 
 /* 2. Pulsation */
 .pulsating {
     width: 100px;
     height: 100px;
-    background-color: #2ecc71;
-    border-radius: 50%;
+    background-color: #e74c3c; /* Couleur rouge */
+    border-radius: 50%; /* Pour créer un cercle */
+    margin: 50px auto; /* Centrer le cercle */
+    animation: pulsate 2s infinite ease-in-out; /* Pulsation sur 2 secondes avec une courbe douce */
 }
+
+/* Keyframes pour l'animation de pulsation */
+@keyframes pulsate {
+    0%, 100% {
+        transform: scale(0.9); /* Taille réduite à 90% au début et à la fin */
+    }
+    50% {
+        transform: scale(1.1); /* Taille augmentée à 110% au milieu */
+    }
+}
+
+}
+
 
 /* 3. Rebond */
 .bouncing {
@@ -115,6 +120,17 @@
     background-color: #3498db;
     border-radius: 50%;
     margin: 0 10px;
+}
+/* Hide the art-info by default */
+.art-item.points-dansants .art-info {
+    opacity: 0; /* Hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth appearance */
+}
+
+/* Show the art-info when hovered */
+.art-item.points-dansants:hover .art-info {
+    opacity: 1; /* Visible on hover */
+    visibility: visible; /* Make sure it is interactable */
 }
 
 /*.point:nth-child(...) */
