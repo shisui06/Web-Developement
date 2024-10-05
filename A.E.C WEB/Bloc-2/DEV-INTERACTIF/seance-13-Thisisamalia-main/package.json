@@ -1,0 +1,15 @@
+{
+  "name": "seance-13",
+  "version": "1.0.0",
+  "description": "Tailwind CSS est un framework CSS moderne qui adopte une approche unique appelée **\"utility-first\"**. Contrairement aux frameworks traditionnels comme Bootstrap ou Foundation, qui proposent des composants pré-stylisés, Tailwind offre une vaste collection de classes utilitaires préconçues. Ces classes vous permettent de construire des designs personnalisés directement dans votre code HTML, sans avoir besoin d'écrire du CSS personnalisé.",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.12"
+  }
+}

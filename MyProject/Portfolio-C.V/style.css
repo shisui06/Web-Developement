@@ -1,107 +1,106 @@
-*, *::before,* ::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-:root{
-    --base:#555;
-    --base-100:#f1f1f1;
-    --base-400:#555;
-    --base-800:#000;
-    --yellow:#ffda4b;
-    --yellow-100: #fffbe6;
-    --yellow-400: #ffda4b;
-    --yellow-800: #8b6f00; 
-    --blue:#0a61ae;
-    --blue-100: #e2f8ff;
-    --blue-400: #61dafb;
-    --blue-800: #0a61ae;
-}
-body {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-size: 20px;
-  padding-bottom: 1000px;
-}
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Prénom Nom</title>
+  <link rel="stylesheet" href="output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
-a{
-    text-decoration: none;
-    color:var(--blue);
-    &:hover {
-        text-decoration: underline;
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-800 shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="text-2xl font-bold">Prénom Nom</div>
+      <ul class="flex space-x-4">
+        <li><a href="#projets" class="hover:text-indigo-500">Projets</a></li>
+        <li><a href="#competences" class="hover:text-indigo-500">Compétences</a></li>
+        <li><a href="#contact" class="hover:text-indigo-500">Contact</a></li>
+        <li>
+          <button id="theme-toggle" class="focus:outline-none">
+            <svg id="theme-icon" class="w-6 h-6"></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="flex flex-col justify-center items-center py-20 bg-gray-200 dark:bg-gray-800">
+    <h1 class="text-4xl font-bold mb-2">Bonjour, je suis Prénom Nom</h1>
+    <p class="text-xl mb-4">Développeur Web Passionné</p>
+    <a href="#projets" class="px-6 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">Voir mes projets</a>
+  </header>
+
+  <!-- Projets Section -->
+  <section id="projets" class="py-16 container mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center">Mes Projets</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Project Card -->
+      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4">
+        <img src="./assets/project1.png" alt="Projet 1" class="rounded-lg mb-4">
+        <h3 class="text-2xl font-semibold mb-2">Projet 1</h3>
+        <p class="text-gray-600 dark:text-gray-300">Description du projet 1...</p>
+      </div>
+      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4">
+        <img src="./assets/project2.png" alt="Projet 2" class="rounded-lg mb-4">
+        <h3 class="text-2xl font-semibold mb-2">Projet 2</h3>
+        <p class="text-gray-600 dark:text-gray-300">Description du projet 2...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences Section -->
+  <section id="competences" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Mes Compétences</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Skill Card -->
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 text-center">
+          <img src="./assets/html5.svg" alt="HTML5" class="w-16 mx-auto mb-4">
+          <h4 class="text-xl font-semibold">HTML5</h4>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4 text-center">
+          <img src="./assets/css3.svg" alt="CSS3" class="w-16 mx-auto mb-4">
+          <h4 class="text-xl font-semibold">CSS3</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 dark:bg-gray-900 py-4 text-center">
+    <p>&copy; 2023 Prénom Nom. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark' || (!currentTheme && userPrefersDark)) {
+      document.documentElement.classList.add('dark');
+      themeIcon.innerHTML = '<path d="M10 2a8 8 0 000 16 8 8 0 000-16z" />';
+    } else {
+      themeIcon.innerHTML = '<path d="M10 2a8 8 0 018 8 8 8 0 01-8 8V2z" />';
     }
-}
-header{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display:flex; 
-    justify-content:space-between;
-    max-width:1440px;
-    margin: auto;
-    border-bottom: 1px solid rgb(0, 0, 0,0.1);
-    
 
-    .logo-holder{
-        display: flex;
-        padding: 10px;
-        align-items: center;
-        font-weight: 600;
-        color: var(--base-800);
-        .logo{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            background-color:var(--base-800);
-            color: var(--base-100);
-            height: 64px;
-            width: 64px;
-            border-radius:50%;
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        themeIcon.innerHTML = '<path d="M10 2a8 8 0 000 16 8 8 0 000-16z" />';
+      } else {
+        localStorage.setItem('theme', 'light');
+        themeIcon.innerHTML = '<path d="M10 2a8 8 0 018 8 8 8 0 01-8 8V2z" />';
+      }
+    });
+  </script>
 
+</body>
+</html>
 
-        }
-        .logo-text{
-            flex:1;
-
-        
-        }
-    }
-    nav{
-        display:flex;
-        list-style-type:none;
-        align-items: center;
-        ul{
-            mobile-toggle{
-                color: var(--base-800);
-                padding: 10px;
-                @
-            }
-            display:flex;
-            list-style: none;
-            li{
-                display: inline-block;
-                a{
-                    display: inline-block;
-                    padding: 10px 20px;
-                    color: var(--base);
-                    &:hover { 
-                        background: var(--base-100)
-                        border-radius : 10px;
-
-
-                }
-            }
-
-
-        }
-    }
-}
-@media (min-width: 768px) {
-    nav{
-        ul{
-            display: none;
-
-        }
-    }
-}

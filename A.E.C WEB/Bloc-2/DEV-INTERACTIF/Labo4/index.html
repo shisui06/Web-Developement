@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Tamoor Younas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <nav class="bg-gray-800 text-white p-4 flex justify-between items-center md:justify-center md:space-x-10">
+    <div class="text-lg md:text-2xl">Tamoor Younas</div>
+    <ul class="flex space-x-6">
+      <li><a href="#projets" class="hover:text-gray-300 text-sm md:text-base">Projets</a></li>
+      <li><a href="#competences" class="hover:text-gray-300 text-sm md:text-base">Compétences</a></li>
+      <li><a href="#contact" class="hover:text-gray-300 text-sm md:text-base">Contact</a></li>
+      <li>
+        <button id="theme-toggle" class="focus:outline-none">
+          <svg id="theme-icon" class="w-6 h-6 fill-current"></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Section Projets -->
+  <section id="projets" class="py-8">
+    <h2 class="text-2xl font-bold mb-6 text-center">Mes Projets</h2>
+    <div class="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6">
+      <!-- Première carte de projet -->
+      <div class="bg-white shadow-md rounded-lg overflow-hidden flex-1">
+        <img src="./assets/project1.png" alt="Projet 1" class="custom-image">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Projet 1</h3>
+          <p class="text-gray-600">Une application mobile dédiée au suivi des habitudes et au développement personnel. Les utilisateurs peuvent définir des objectifs quotidiens, suivre leurs progrès via des tableaux de bord personnalisés, et recevoir des notifications de rappel. L'application permet également de créer des groupes de soutien, où les membres peuvent partager leurs réalisations et encourager les autres. Le backend est alimenté par Firebase, offrant une authentification utilisateur sécurisée et un stockage en temps réel.</p>
+        </div>
+      </div>
+
+      <!-- Deuxième carte de projet -->
+      <div class="bg-white shadow-md rounded-lg overflow-hidden flex-1">
+        <img src="./assets/project2.png" alt="Projet 2" class="w-full max-w-xs md:max-w-sm h-auto object-cover mx-auto">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Projet 2</h3>
+          <p class="text-gray-600">Développement d'un site e-commerce sur mesure pour une boutique de mode en ligne. Le site permet aux utilisateurs de parcourir et d'acheter des produits à travers une interface fluide et responsive. Les fonctionnalités incluent la gestion du panier, un système de paiement sécurisé via Stripe API, et un tableau de bord administrateur pour la gestion des stocks, des commandes, et des promotions. Le framework Laravel a été utilisé pour le backend et Vue.js pour le frontend.<p>
+        </div>
+      </div>
+
+      <!-- Troisième carte de projet -->
+      <div class="bg-white shadow-md rounded-lg overflow-hidden flex-1">
+        <img src="./assets/project3.png" alt="Projet 3" class="w-full max-w-xs md:max-w-sm h-auto object-cover mx-auto">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Projet 3</h3>
+          <p class="text-gray-600">Ce projet consiste en la création d'une plateforme collaborative de gestion de projets pour les équipes de développement. L'application permet aux utilisateurs de créer et de gérer des projets, d'assigner des tâches aux membres de l'équipe, de suivre la progression avec des graphiques dynamiques, et de communiquer en temps réel via un chat intégré. L'interface utilisateur a été conçue avec Tailwind CSS pour un design épuré et responsive. Le backend est construit avec Node.js et utilise MongoDB pour la gestion des données.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Compétences -->
+  <section id="competences" class="py-8">
+    <h2 class="text-2xl font-bold mb-6 text-center">Mes Compétences</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Première compétence -->
+      <div class="flex flex-col items-center bg-white shadow-md rounded-lg p-4">
+        <img src="./assets/html5.svg" alt="HTML5" class="w-20 h-20 object-contain mb-2">
+        <h4 class="text-lg font-semibold">HTML5</h4>
+      </div>
+
+      <!-- Deuxième compétence -->
+      <div class="flex flex-col items-center bg-white shadow-md rounded-lg p-4">
+        <img src="./assets/css3.svg" alt="CSS3" class="w-20 h-20 object-contain mb-2">
+        <h4 class="text-lg font-semibold">CSS3</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="bg-gray-800 text-white text-center py-4">
+    <p class="text-sm md:text-base">&copy; 2024 Tamoor Younas. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script pour le mode sombre -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark' || (!currentTheme && userPrefersDark)) {
+      document.documentElement.classList.add('dark');
+      themeIcon.innerHTML = '<path d="M10 2a8 8 0 000 16 8 8 0 000-16z" />';
+    } else {
+      themeIcon.innerHTML = '<path d="M10 2a8 8 0 018 8 8 8 0 01-8 8V2z" />';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        themeIcon.innerHTML = '<path d="M10 2a8 8 0 000 16 8 8 0 000-16z" />';
