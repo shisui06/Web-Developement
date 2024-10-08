@@ -1,3 +1,3 @@
-
+let totalAmount
 
 fonction totalAmount()
