@@ -1,3 +1,0 @@
-let totalAmount
-
-fonction totalAmount()
