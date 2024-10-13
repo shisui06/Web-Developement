@@ -28,6 +28,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #56ff9c;
+  border: 10px;
+  border-style: solid;
 }
 
 h1 {
@@ -65,4 +68,18 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+@media (max-width: 1250px) {
+  /* … */
+}
+
+@media (min-width: 30em) and (max-width: 50em) {
+  /* … */
+}
+
+@media (30em <= width <= 50em) {
+  /* … */
+}
+@media (min-height: 680px), screen and (orientation: portrait) {
+  /* … */
 }
