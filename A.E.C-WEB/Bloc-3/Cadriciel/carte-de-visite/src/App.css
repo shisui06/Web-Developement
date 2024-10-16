@@ -41,7 +41,7 @@
 }
 
 @media (max-width: 460px) {
-  /* Additional responsive styles for mobile */
+
   .card {
     padding: 10px;
   }
