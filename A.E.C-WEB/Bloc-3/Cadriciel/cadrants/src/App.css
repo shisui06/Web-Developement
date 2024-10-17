@@ -1,0 +1,23 @@
+body{
+  padding: 30px;
+  margin: 10px;
+  align-items: center;
+}
+
+.item{
+
+  width: 500x;
+  height: 500px;
+  background-color: aquamarine;
+  text-align: center;
+  padding: 10px;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2px;
+  height: 500px;
+}
+
