@@ -8,11 +8,11 @@ function App() {
 
   return (
     <>
-      <div class="container">
-        <div id=item-1 class="item">Q1</div>
-        <div id=item-2 lass="item">Q2</div>
-        <div id=item-3 lass="item">Q3</div>
-        <div id=item-4 class="item">Q4</div>
+      <div className="container">
+        <div id= "item1" class="item">Q1</div>
+        <div id= "item2" class="item">Q2</div>
+        <div id= "item3" class="item">Q3</div>
+        <div id= "item4" class="item">Q4</div>
       </div>
     </>
   )

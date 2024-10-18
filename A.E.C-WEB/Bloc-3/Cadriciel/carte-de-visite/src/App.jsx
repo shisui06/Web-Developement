@@ -9,7 +9,12 @@ function App() {
   return (
     <div className="card">
        <div>
-        <Avatar name="Tamoor Younas" size="100" round={true} />
+       <Avatar 
+  src="/public/images/avatar.png" 
+  size="100" 
+  round={true} 
+  alt="Tamoor Younas"
+/>
       </div>
       <h1>Tamoor Younas</h1>
       <h3>Étudiant en développement web</h3>
