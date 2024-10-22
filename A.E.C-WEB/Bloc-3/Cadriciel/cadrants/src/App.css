@@ -1,24 +1,24 @@
-body{
-  padding: 30px;
-  margin: 10px;
-  align-items: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.item{
-  background-color: aquamarine;
-  text-align: center;
-  padding: 1px;
+html, body, #root {
+  height: 100%;
 }
-.container{
+
+.flex-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 2px;
-  height: 500px;
+  flex-wrap: wrap;
+  height: 100vh;
 }
 
-div .item1{
-  width: 250px;
-  height: 250px;
+.flex-container > div {
+  flex: 0 0 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
 }

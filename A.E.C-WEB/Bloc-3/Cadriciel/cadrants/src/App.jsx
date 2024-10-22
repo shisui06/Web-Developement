@@ -1,21 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Quadrant from './components/Quadrant';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div className="container">
-        <div id= "item1" class="item">Q1</div>
-        <div id= "item2" class="item">Q2</div>
-        <div id= "item3" class="item">Q3</div>
-        <div id= "item4" class="item">Q4</div>
-      </div>
-    </>
-  )
-}
+    <div className="flex-container">
+      <Quadrant backgroundColor="#F4538A">Quadrant 1</Quadrant>
+      <Quadrant backgroundColor="#FAA300">Quadrant 2</Quadrant>
+      <Quadrant backgroundColor="#F5DD61">Quadrant 3</Quadrant>
+      <Quadrant backgroundColor="#59D5E0">Quadrant 4</Quadrant>
+    </div>
+  );
+};
 
-export default App
+export default App;
