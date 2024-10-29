@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js Express Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <img src="/img/door2.jpg" alt="Girl in a jacket" style="width: 800px; height: 600px;">
+  <div>
+      <nav>
+          <a class="nav-link" onclick="showPage('home')">Home</a>
+          <a class="nav-link" onclick="showPage('howtoplay')">Comment jouer</a>
+          <a class="nav-link" onclick="showPage('statistics')">Statistics</a>
+          <a class="nav-link" onclick="showPage('play')">Play</a>
+      </nav>
+  </div>
+
+  <button onclick="toggleLoginForm()">Login</button>
+
+  <!-- Login Form -->
+  <div id="loginForm" class="login-form" style="display: none;">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="handleLogin()">Submit</button>
+  </div>
+
+  
+  <div class="content">
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <h1>Home</h1>
+        <p>Welcome to our simple Single Page Application!</p>
+    </div>
+
+    <!-- How to Play Page -->
+    <div id="howtoplay" class="page">
+        <h1>How to Play</h1>
+        <div id="how-to-play-content">
+          <p>
+            Le but du jeu est d’arriver à la porte en possession de clé et sortir<br>
+            - Le joueur prend la clé quand in arrive à la case “clé”.<br>
+            - Le joueur meurt quand un ennemi vient dans sa case.<br>
+            - Au début: Le joueur est placé à la case “Start”.<br>
+            - La clé et les ennemis (3) sont placés dans des cases aléatoires.<br>
+            - Pour bouger, on utilise les touches flèche de clavier.(haut, bas, gauche, droite).<br>
+            - Quand l’utilisateur bouge le serveur fait les actions suivantes
+            - Il calcule la nouvelle position du joueur (vérifier si c’est possible)<br>
+            - Il calcule la nouvelle position de chacun des ennemis en choisissant par Hazard le mouvement (une case des 8 cases a cote)<br>
+            - Il envoi l’information au client.<br>
+            - Le client refait l’affichage selon les Nouvelles positions.<br>
+            - Quand l’utilisateur réussi le jeu il gagne 10 points<br>
+          </p>
+      </div>
+    </div>
+
+    <!-- Statistics Page -->
+    <div id="statistics" class="page">
+      <h1>Statistics</h1>
+      <div id="statistics-content">
+          <h2>Player Statistics</h2>
+          <table>
+              <tr>
+                  <th>Player</th>
+                  <th>Score</th>
+              </tr>
+              <tr>
+                  <td>Player 1</td>
+                  <td>100</td>
+              </tr>
+              <tr>
+                  <td>Player 2</td>
+                  <td>150</td>
+              </tr>
+          </table>
+      </div>
+    </div>
+
+    <!-- Play Game Page -->
+    <div id="play" class="page">
+      <h1>Play Game</h1>
+      <div id="userConnected">User not connected</div>
+      <div id="game-section" style="display: none;">
+          <h2>Game starts here!</h2>
+          <div id="game-board"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load other scripts if needed -->
+  <script src="login.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
