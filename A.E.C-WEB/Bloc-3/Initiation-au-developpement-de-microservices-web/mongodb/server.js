@@ -1,25 +1,54 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://apou01:admin@cluster0.afy4tzh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const { MongoClient } = require('mongodb');
+
+
+const uri = mongodb+srv//apou01:admin@cluster0.afy4tzh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+const client = new MongoClient(uri);
+
+const databaseName = "school";
+const collectionName = "student";
+
 async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("school").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+    try {
+        await client.connect();
+        const db = client.db(databaseName);
+        const collection = db.collection(collectionName);
+
+        
+        const studentsData = [
+            { nom: "Pierre", note1: 55 },
+            { nom: "Kamba", note1: 80, note2: 95 },
+            { nom: "Marc" },
+            { nom: "Toufik", note1: 95, note2: 95, note3: 95 },
+            { nom: "Belvita", note1: 85, note2: 50 },
+            { nom: "Akerlie", note1: 70, note2: 95, note3: 85 },
+            { nom: "Etienne", note1: 75, note3: 78 }
+        ];
+
+
+        await collection.insertMany(studentsData);
+        console.log("Données insérées.");
+
+    } catch (err) {
+        console.error("Erreur lors de la connexion ou de l'insertion des données:", err);
+    } finally {
+        await client.close();
+    }
 }
-run().catch(console.dir);
+
+run();
 
 
+
+/*
+J'ai esséyer de le faire mais cela m'affiche cette erreur.   
+
+
+ReferenceError: mongodb is not defined
+    at Object.<anonymous> (/Users/tamoor/Documents/GitHub/Web-Developement/A.E.C-WEB/Bloc-3/Initiation-au-developpement-de-microservices-web/mongodb/server.js:4:13)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+    at node:internal/main/run_main_module:28:49
