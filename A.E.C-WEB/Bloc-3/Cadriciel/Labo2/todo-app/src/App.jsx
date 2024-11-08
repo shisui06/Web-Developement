@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Header />
-      <TodoForm />
+      <TodoForm />–
       <TodoList />
     </div>
   );
