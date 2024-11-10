@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import Header from './component/Header';
+import TodoForm from './component/TodoForm';
+import TodoList from './component/TodoList';
 
 function App() {
   const [tasks, setTasks] = useState([

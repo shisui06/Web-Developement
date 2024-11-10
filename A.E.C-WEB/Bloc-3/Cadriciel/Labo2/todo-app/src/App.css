@@ -1,0 +1,35 @@
+/* src/App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  background-color: #f0f0f0; /* Light background color */
+}
+
+.container {
+  text-align: center; /* Center text within the container */
+  background: white; /* White background for the container */
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.todo-list {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+}
+
+.todo-list li {
+  margin: 10px 0; /* Space between list items */
+  padding: 10px; /* Padding for list items */
+  background-color: #e0e0e0; /* Background for list items */
+  border-radius: 4px; /* Rounded corners for list items */
+}
+
