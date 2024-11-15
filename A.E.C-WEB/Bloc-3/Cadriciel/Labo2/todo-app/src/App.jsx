@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './component/Header';
 import TodoForm from './component/TodoForm';
 import TodoList from './component/TodoList';
+import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -32,7 +33,7 @@ function App() {
   );
 
   return (
-    <div>
+    <div className="appContainer">
       <Header />
       <TodoForm addTask={addTask} setSearchText={setSearchText} />
       <TodoList tasks={filteredTasks} toggleComplete={toggleComplete} toggleArchive={toggleArchive} />
