@@ -1,3 +1,5 @@
+const GRID_SIZE = 8;
+let hasKey = false;
 
 function showPage(pageId) {
   const pages = document.querySelectorAll('.page');
@@ -12,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   links.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
+      e.preventDefault();           
       const pageId = link.getAttribute('href').substring(1);
       showPage(pageId);
       history.pushState(null, null, `#${pageId}`);
@@ -28,57 +30,103 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-const GRID_SIZE = 8;
-let playerPos = { x: 0, y: 0 };
-let keyPos = { x: Math.floor(Math.random() * GRID_SIZE), y: Math.floor(Math.random() * GRID_SIZE) };
-let doorPos = { x: GRID_SIZE - 1, y: GRID_SIZE - 1 };
-let enemies = [{ x: 3, y: 3 }, { x: 5, y: 5 }];
-let hasKey = false;
-
-function createBoard() {
+function createBoard(positions) {
   const gameBoard = document.getElementById('game-board');
   gameBoard.innerHTML = '';
 
-  for (let y = 0; y < GRID_SIZE; y++) {
-    for (let x = 0; x < GRID_SIZE; x++) {
-      const square = document.createElement('div');
-      square.classList.add('square');
+  for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+    const square = document.createElement('div');
+    square.classList.add('square');
 
-      if (x === playerPos.x && y === playerPos.y) square.classList.add('player');
-      else if (x === keyPos.x && y === keyPos.y && !hasKey) square.classList.add('key');
-      else if (x === doorPos.x && y === doorPos.y) square.classList.add('door');
-      else if (enemies.some(enemy => enemy.x === x && enemy.y === y)) square.classList.add('enemy');
+    const player = positions.find(p => p.name === 'player');
+    const key = positions.find(p => p.name === 'key');
+    const enemies = positions.filter(p => p.name.startsWith('enemy'));
 
-      gameBoard.appendChild(square);
-    }
+    if (player && player.position === i) square.classList.add('player');
+    if (key && key.position === i && !hasKey) square.classList.add('key');
+    if (i === 63) square.classList.add('door');
+    if (enemies.some(enemy => enemy.position === i)) square.classList.add('enemy');
+
+    gameBoard.appendChild(square);
   }
+}
+
+async function startGame() {
+    try {
+        const response = await fetch('/start', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            console.error('Server error:', response.status, response.statusText);
+            return;
+        }
+        
+        const data = await response.json();
+        if (data.status === 'ok') {
+            hasKey = false;
+            createBoard(data.positions);
+        } else {
+            console.error('Error in received data:', data.message);
+        }
+    } catch (error) {
+        console.error('Error starting game:', error);
+    }
+}
+
+async function movePlayer(direction) {
+    try {
+        const response = await fetch('/move', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ direction })
+        });
+
+        if (!response.ok) {
+            console.error('Server error:', response.status, response.statusText);
+            return;
+        }
+
+        const data = await response.json();
+        
+        if (data.status === 'ok') {
+            hasKey = data.hasKey;
+            createBoard(data.newPositions);
+
+            if (data.hitEnemy) {
+                alert('Game Over! You hit an enemy!');
+                await startGame();
+            }
+        } else {
+            console.error('Error in received data:', data.message || 'Unexpected format');
+        }
+    } catch (error) {
+        console.error('Error during movement:', error);
+    }
 }
 
 window.addEventListener('keydown', (e) => {
-  const dx = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-  const dy = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
+  const directions = {
+    'ArrowRight': 'right',
+    'ArrowLeft': 'left',
+    'ArrowUp': 'up',
+    'ArrowDown': 'down'
+  };
 
-  const newX = playerPos.x + dx;
-  const newY = playerPos.y + dy;
-
-  if (newX >= 0 && newX < GRID_SIZE && newY >= 0 && newY < GRID_SIZE) {
-    playerPos = { x: newX, y: newY };
-
-    if (newX === keyPos.x && newY === keyPos.y) hasKey = true;
-
-    if (hasKey && newX === doorPos.x && newY === doorPos.y) {
-      alert('You won!');
-      window.location.reload();
-    }
-
-    createBoard();
+  const direction = directions[e.key];
+  if (direction) {
+    movePlayer(direction);
   }
 });
 
-createBoard();
-
-function initializeGame() {
-  const gameBoard = document.getElementById('game-board');
-  
+function initGame() {
+  console.log("Game initialized!");
+  startGame();
 }
+
+initGame();

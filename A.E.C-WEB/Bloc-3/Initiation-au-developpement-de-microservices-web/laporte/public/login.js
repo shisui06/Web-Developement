@@ -3,6 +3,11 @@ async function handleLogin(event) {
     
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
+    if (!username || !password) {
+        document.getElementById('login-error').textContent = 'Username and password are required.';
+        return;
+    }
     
     try {
         const response = await fetch('/login', {  
@@ -14,12 +19,15 @@ async function handleLogin(event) {
         const data = await response.json();
         
         if (data.success) {
-            localStorage.setItem('loggedUser', data.name); 
+            
+            localStorage.setItem('loggedUser', data.name);
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('game-section').style.display = 'block';
             updateUserStatus(data.name);
+            
+            
             showPage('play');
-            initGame();
+            initGame(); 
         } else {
             document.getElementById('login-error').textContent = data.message || 'Login failed';
         }
@@ -29,52 +37,6 @@ async function handleLogin(event) {
     }
 }
 
-function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-
-    const selectedPage = document.getElementById(pageId);
-    if (selectedPage) {
-        selectedPage.classList.add('active');
-        
-        
-        if (pageId === 'play') {
-            const loggedUser = localStorage.getItem('loggedUser');
-            if (!loggedUser) {
-                
-                document.getElementById('loginForm').style.display = 'block';
-                document.getElementById('game-section').style.display = 'none';
-            } else {
-                
-                document.getElementById('loginForm').style.display = 'none';
-                document.getElementById('game-section').style.display = 'block';
-                updateUserStatus(loggedUser);
-                initGame();
-            }
-        }
-    }
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const loggedUser = localStorage.getItem('loggedUser');
-    if (loggedUser) {
-        updateUserStatus(loggedUser);
-        document.getElementById('loginForm').style.display = 'none';
-        document.getElementById('game-section').style.display = 'block';
-        initGame();
-    } else {
-        document.getElementById('loginForm').style.display = 'block';
-        document.getElementById('game-section').style.display = 'none';
-    }
-
-
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
-});
-
 function updateUserStatus(username) {
     const userConnected = document.getElementById('userConnected');
     if (userConnected) {
@@ -83,9 +45,30 @@ function updateUserStatus(username) {
 }
 
 function logout() {
+    
     localStorage.removeItem('loggedUser');
-    updateUserStatus('User not connected');
+    updateUserStatus('');
     document.getElementById('loginForm').style.display = 'block';
     document.getElementById('game-section').style.display = 'none';
     showPage('home');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const loggedUser = localStorage.getItem('loggedUser');
+    if (loggedUser) {
+        updateUserStatus(loggedUser);
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('game-section').style.display = 'block';
+        showPage('play');
+        initGame(); 
+    } else {
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('game-section').style.display = 'none';
+    }
+
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+});

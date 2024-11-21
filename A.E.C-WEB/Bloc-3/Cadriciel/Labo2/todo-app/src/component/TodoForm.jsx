@@ -18,14 +18,22 @@ function TodoForm({ addTask, setSearchText }) {
     <div className="input">
       <input 
         type="text" 
-        class="input-field" 
+        className="input-field" 
         id="todoInput"
         placeholder="Ajouter une tâche" 
         value={input} 
         onChange={(e) => setInput(e.target.value)} 
       />
-      <button class="btn" onClick={handleAdd}>Ajouter</button>
-      
+      <button className="btn" onClick={handleAdd}>Ajouter</button>
+
+    
+      <input 
+        type="text" 
+        className="input-field" 
+        id="searchInput"
+        placeholder="Rechercher une tâche..." 
+        onChange={handleSearch} 
+      />
     </div>
   );
 }
