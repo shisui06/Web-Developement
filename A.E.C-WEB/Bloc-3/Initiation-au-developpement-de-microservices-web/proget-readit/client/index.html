@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des Messages</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Read It</h1>
+    <div class="header-container">
+      <button id="new-message-btn">Nouveau Message</button>
+      <input type="text" id="search-bar" placeholder="Rechercher...">
+      
+      <form id="login-form">
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button id="login-btn">Log in</button>
+      </form>
+      
+      <button id="logout-btn" style="display:none;">Se déconnecter</button>
+  
+    </div>
+    <div class="register-form">
+      <h2>Register</h2>
+      <input type="text" id="registerName" placeholder="Full Name" required>
+      <input type="text" id="registerUsername" placeholder="Username" required>
+      <input type="password" id="registerPassword" placeholder="Password" required>
+      <button id="register-btn" onclick="register()">Register</button>
+    </div>
+    
+  </header>
+  
+  <script src="script.js"></script>
+</body>
+</html>
