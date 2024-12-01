@@ -2,35 +2,50 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestion des Messages</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  
     <h1>Read It</h1>
-    <div class="header-container">
+    <header class="header-container">
       <button id="new-message-btn">Nouveau Message</button>
       <input type="text" id="search-bar" placeholder="Rechercher...">
-      
-      <form id="login-form">
-        <input type="text" id="loginUsername" placeholder="Username">
-        <input type="password" id="loginPassword" placeholder="Password">
-        <button id="login-btn">Log in</button>
-      </form>
-      
+
+      <!-- Conteneur du formulaire pour connexion -->
+      <div class="login-container">
+        <form id="login-form">
+          <input type="text" id="loginUsername" placeholder="Username" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+        </form>
+        <div id="login-register-buttons">
+          <button type="submit" id="login-btn">Log in</button>
+          <button type="button" id="show-register-btn">Register</button>
+        </div>
+      </div> 
+
+      <!-- Modal container for Registration -->
+      <div id="registrationModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="close-modal-btn">&times;</span>
+          <h2>Register</h2>
+          <form id="registration-form">
+            <input type="text" id="registerUsername" placeholder="Username" required>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <button type="submit" id="submitRegistration">Submit</button>
+          </form>
+        </div>
+      </div>
+
       <button id="logout-btn" style="display:none;">Se déconnecter</button>
-  
-    </div>
-    <div class="register-form">
-      <h2>Register</h2>
-      <input type="text" id="registerName" placeholder="Full Name" required>
-      <input type="text" id="registerUsername" placeholder="Username" required>
-      <input type="password" id="registerPassword" placeholder="Password" required>
-      <button id="register-btn" onclick="register()">Register</button>
-    </div>
-    
-  </header>
-  
-  <script src="script.js"></script>
+    </header>
+
+    <!-- Sections pour les messages -->
+    <div id="messagesList"></div>
+    <div id="messageDetails"></div>
+
+    <!-- Inclusion du fichier JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

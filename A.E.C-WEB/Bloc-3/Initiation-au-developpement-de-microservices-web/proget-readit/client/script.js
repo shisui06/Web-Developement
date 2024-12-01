@@ -1,121 +1,141 @@
-// Initial login state
-let isLoggedIn = false; 
+let isLoggedIn = false;
 
+// Grab references to buttons and forms
 const loginBtn = document.getElementById('login-btn');
 const logoutBtn = document.getElementById('logout-btn');
+const newMessageBtn = document.getElementById('new-message-btn');
+const showRegisterBtn = document.getElementById('show-register-btn');
+const registrationFormContainer = document.getElementById('form-container');
+const registrationForm = document.getElementById('registration-form');
 
-// Function to update button visibility based on login state
+// Modal elements
+const registrationModal = document.getElementById('registrationModal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+
+// Function to update the visibility of login/logout buttons based on login state
 function updateButtonVisibility() {
-  if (loginBtn && logoutBtn) {
-    loginBtn.style.display = isLoggedIn ? 'none' : 'block';
-    logoutBtn.style.display = isLoggedIn ? 'block' : 'none';
+  loginBtn.style.display = isLoggedIn ? 'none' : 'block';
+  logoutBtn.style.display = isLoggedIn ? 'block' : 'none';
+}
+
+// Event listeners when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  loginBtn.addEventListener('click', login);
+  logoutBtn.addEventListener('click', logout);
+  newMessageBtn.addEventListener('click', newMessage);
+  showRegisterBtn.addEventListener('click', toggleRegistrationForm);
+  registrationForm.addEventListener('submit', register);
+
+  // Check login state from local storage
+  const token = localStorage.getItem('token');
+  isLoggedIn = !!token;  // Convert token to boolean
+  updateButtonVisibility();  // Update button states based on login state
+  loadMessages();  // Load messages on page load
+});
+
+// Function to show/hide the registration modal
+function toggleRegistrationForm() {
+  console.log("Toggle registration form called");
+
+  if (registrationModal.style.display === 'none' || registrationModal.style.display === '') {
+    registrationModal.style.display = 'block'; // Show modal
+    console.log("Registration form displayed in modal");
+  } else {
+    registrationModal.style.display = 'none'; // Hide modal
+    console.log("Registration form hidden");
   }
 }
-// Call this function to set the initial state
-document.addEventListener('DOMContentLoaded', () => {
-  const loginBtn = document.getElementById('login-btn');
-  const logoutBtn = document.getElementById('logout-btn');
-  
-  // Add event listeners
-  loginBtn?.addEventListener('click', login);
-  logoutBtn?.addEventListener('click', logout);
-  
-  const registerBtn = document.getElementById('register-btn');
-  registerBtn?.addEventListener('click', register);
-  
-  // Set initial state
-  const token = localStorage.getItem('token');
-  isLoggedIn = !!token;
-  updateButtonVisibility();
-  loadMessages();
-});// Handle user login
-async function login() {
-  const username = document.getElementById('loginUsername').value;
-  const password = document.getElementById('loginPassword').value;
-  
+
+// Event listener to close the modal when the close button is clicked
+closeModalBtn.addEventListener('click', () => {
+  registrationModal.style.display = 'none'; // Close modal
+});
+
+// Event listener to close the modal if clicked outside of the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === registrationModal) {
+    registrationModal.style.display = 'none'; // Close modal if the outside area is clicked
+  }
+});
+
+// Handle user login
+async function login(event) {
+  event.preventDefault();  // Prevent form submission default behavior
+  const username = document.getElementById('loginUsername').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+
   try {
     const response = await fetch('http://localhost:82/api/users/login', {
       method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ 
-        username: username.trim(), 
-        password: password.trim() 
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
     });
 
     const data = await response.json();
-    
     if (response.ok && data.token) {
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.token);  // Store token
       isLoggedIn = true;
-      updateButtonVisibility();
-      loadMessages();
+      updateButtonVisibility();  // Refresh button states
+      loadMessages();  // Load messages after login
       alert('Connexion réussie!');
     } else {
-      alert(data.message);
+      alert(data.message || 'Erreur de connexion');
     }
   } catch (error) {
     console.error('Login error:', error);
     alert('Erreur de connexion');
   }
 }
-// Logout function
+
+// Handle user logout
 function logout() {
-  localStorage.removeItem('token');
-  isLoggedIn = false;  // Update login state
-  updateButtonVisibility();  // Update button visibility
+  localStorage.removeItem('token');  // Remove token from local storage
+  isLoggedIn = false;
+  updateButtonVisibility();  // Refresh button states
   alert('Vous êtes déconnecté.');
 }
 
-// Register function
-async function register() {
-  const name = document.getElementById('registerName').value;
-  const username = document.getElementById('registerUsername').value;
-  const password = document.getElementById('registerPassword').value;
+// Handle user registration
+async function register(event) {
+  event.preventDefault();  // Prevent form submission default behavior
+  const username = document.getElementById('registerUsername').value.trim();
+  const password = document.getElementById('registerPassword').value.trim();
 
   try {
     const response = await fetch('http://localhost:82/api/users/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, username, password })
+      body: JSON.stringify({ username, password })
     });
-    
-    console.log('Response Status:', response.status);
-    console.log('Response:', response);
-
 
     const data = await response.json();
-    if (data.status === 'ok') {
+    if (response.ok) {
       alert('Inscription réussie! Connectez-vous maintenant.');
+      registrationModal.style.display = 'none';  // Hide registration modal
     } else {
-      alert('Erreur lors de l\'inscription.');
+      alert(data.message || 'Erreur lors de l\'inscription.');
     }
   } catch (error) {
     console.error('Erreur d\'inscription:', error);
-    alert('Une erreur register');
+    alert('Une erreur est survenue lors de l\'inscription');
   }
 }
 
-// Attach event listeners to buttons
-
-document.getElementById('login-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  login();
-});
-logoutBtn.addEventListener('click', logout);
-
-// Load messages when the page is ready
+// Function to load messages from the server
 async function loadMessages() {
-  alert('IstheCodeWorking');
-  // Logic for loading messages can be implemented here
+  try {
+    const response = await fetch('http://localhost:82/api/messages');
+    const messages = await response.json();
+    displayMessageList(messages);  // Call a function to display messages
+  } catch (error) {
+    console.error('Error loading messages:', error);
+  }
 }
 
-// Create a new message
+// Function to create and add a new message
 async function newMessage() {
-  const title = document.getElementById('messageTitle').value;
-  const messageTxt = document.getElementById('messageText').value;
+  const title = prompt("Titre du message :");
+  const messageTxt = prompt("Contenu du message :");
   const token = localStorage.getItem('token');
 
   if (!token) {
@@ -134,50 +154,27 @@ async function newMessage() {
     });
 
     const data = await response.json();
-    if (data.status === 'ok') {
-      alert(data.message);
-      displayMessageDetail(data.data);
-      loadMessages();  // Refresh the list after adding a new message
+    if (response.ok) {
+      alert('Message ajouté avec succès!');
+      loadMessages();  // Reload messages
     } else {
-      alert('Erreur lors de l\'ajout du message.');
+      alert(data.error || 'Erreur lors de l\'ajout du message.');
     }
   } catch (error) {
-    console.error ('Erreur:', error);
-    alert('Une erreur réseau est survenue.');
+    console.error('Erreur lors de l\'ajout du message:', error);
+    alert('Une erreur est survenue. Veuillez réessayer.');
   }
 }
 
-// Display message details
-function displayMessageDetail(message) {
-  const detailsDiv = document.getElementById('messageDetails');
-  detailsDiv.innerHTML = `
-    <h3>${message.title}</h3>
-    <p>${message.message}</p>
-    <p><strong>Date :</strong> ${new Date(message.date).toLocaleString()}</p>
-  `;
-}
-
-// Search messages
-async function searchMessages() {
-  const searchText = document.getElementById('searchInput').value;
-  try {
-    const response = await fetch(`http://localhost:82/api/message/search/${encodeURIComponent(searchText)}`);
-    const messages = await response.json();
-    displayMessageList(messages);  // Display search results
-  } catch (error) {
-    console.error('Erreur de recherche:', error);
-    alert('Impossible de rechercher les messages.');
-  }
-}
-
-// Display a list of messages
+// Function to display messages in the messagesList container
 function displayMessageList(messages) {
   const messagesList = document.getElementById('messagesList');
-  messagesList.innerHTML = '';  // Clear previous messages
+  messagesList.innerHTML = '';
 
-  messages.forEach(msg => {
-    const messageItem = document.createElement('div');
-    messageItem.innerHTML = `<h3 onclick='displayMessageDetail(${JSON.stringify(msg)})'>${msg.title}</h3>`;
-    messagesList.appendChild(messageItem);
+  messages.forEach((message) => {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message';
+    messageDiv.innerHTML = `<h3>${message.title}</h3><p>${message.message}</p>`;
+    messagesList.appendChild(messageDiv);
   });
 }
