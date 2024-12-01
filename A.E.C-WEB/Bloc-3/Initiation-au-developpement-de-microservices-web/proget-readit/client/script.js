@@ -8,6 +8,7 @@ const showRegisterBtn = document.getElementById('show-register-btn');
 const registrationFormContainer = document.getElementById('form-container');
 const registrationForm = document.getElementById('registration-form');
 
+
 // Modal elements
 const registrationModal = document.getElementById('registrationModal');
 const closeModalBtn = document.getElementById('close-modal-btn');
@@ -178,3 +179,28 @@ function displayMessageList(messages) {
     messagesList.appendChild(messageDiv);
   });
 }
+
+// ... other code ...
+
+const showLoginBtn = document.getElementById('show-login-btn');
+const loginModal = document.getElementById('login-modal');
+const closeLoginModalBtn = document.getElementById('close-login-modal-btn'); // Assuming you have a close button inside the modal
+
+// Show Login Modal
+showLoginBtn.addEventListener('click', () => {
+  loginModal.style.display = 'block';
+});
+
+// Close Login Modal
+closeLoginModalBtn.addEventListener('click', () => {
+  loginModal.style.display = 'none';
+});
+
+// Close modal when clicking outside of it
+window.addEventListener('click', (event) => {
+  if (event.target == loginModal) {
+    loginModal.style.display = 'none';
+  }
+});
+
+// ... rest of your code ...
