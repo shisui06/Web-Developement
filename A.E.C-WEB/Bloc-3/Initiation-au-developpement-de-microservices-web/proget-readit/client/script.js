@@ -180,7 +180,7 @@ function displayMessageList(messages) {
   });
 }
 
-// ... other code ...
+
 
 const showLoginBtn = document.getElementById('show-login-btn');
 const loginModal = document.getElementById('login-modal');
@@ -203,4 +203,3 @@ window.addEventListener('click', (event) => {
   }
 });
 
-// ... rest of your code ...

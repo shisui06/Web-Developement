@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');; // Adjust the path if necessary
 const JWT_SECRET = process.env.JWT_SECRET || 'secret_key';
 
+// User registration route and check for existing username
 router.post('/register', async (req, res) => {
   const { name, username, password } = req.body;
   
