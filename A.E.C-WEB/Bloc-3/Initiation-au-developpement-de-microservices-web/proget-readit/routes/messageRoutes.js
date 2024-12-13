@@ -1,11 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');  // For password hashing
-const User = require('../models/userModel'); // Import User model
-const Message = require('../models/messageModel'); // Existing import
+const bcrypt = require('bcryptjs');  
+const User = require('../models/userModel'); 
+const Message = require('../models/messageModel'); 
 const router = express.Router();
 
-// Middleware for authentication
+
 function authenticateToken(req, res, next) {
   const token = req.header('Authorization');
   if (!token) return res.status(403).send({ error: 'Token required' });
@@ -17,10 +17,6 @@ function authenticateToken(req, res, next) {
   });
 }
 
-
-// ------------------ Existing Message Routes ------------------
-
-// GET all messages
 router.get('/', async (req, res) => {
   try {
     const messages = await Message.find().populate('user');
@@ -30,7 +26,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Add a new message
+
 router.post('/newMessage', authenticateToken, async (req, res) => {
   const { title, message } = req.body;
   if (!title || !message) {
@@ -51,7 +47,6 @@ router.post('/newMessage', authenticateToken, async (req, res) => {
   }
 });
 
-// Search for messages
 router.get('/search/:text', async (req, res) => {
   const searchText = req.params.text;
   try {
@@ -67,7 +62,6 @@ router.get('/search/:text', async (req, res) => {
   }
 });
 
-// Delete a message (admin only)
 router.delete('/deleteMessage/:id', authenticateToken, async (req, res) => {
   if (req.user.profile !== 'admin') return res.status(403).send({ error: 'Access denied' });
 

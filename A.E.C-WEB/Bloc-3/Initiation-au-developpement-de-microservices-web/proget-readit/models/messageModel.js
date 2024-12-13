@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Message Schema
 const messageSchema = new mongoose.Schema({
   title: { type: String, required: true },
   message: { type: String, required: true },
