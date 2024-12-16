@@ -1,0 +1,1 @@
+<Formulaire onButtonPressed={(texte) => alert(texte)} />
