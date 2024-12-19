@@ -1,0 +1,16 @@
+{
+  "name": "test-genskin",
+  "version": "1.0.0",
+  "main": "connexion.steps.js",
+  "scripts": {
+
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+
+  "author": "",
+  
+  "license": "ISC",
+  
+  "description": ""
+}
