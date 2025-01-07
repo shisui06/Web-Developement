@@ -1,0 +1,16 @@
+{
+  "name": "test-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test-cucumber": "cucumber-js test/features --require test/step_definitions"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.1.1"
+  }
+}
