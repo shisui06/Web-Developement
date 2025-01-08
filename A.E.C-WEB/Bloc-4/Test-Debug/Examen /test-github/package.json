@@ -1,15 +1,13 @@
 {
-  "name": "test-genskin",
+  "name": "test-github",
   "version": "1.0.0",
-  "main": "connexion.steps.js",
+  "type": "module",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:cucumber": "cucumber-js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "@cucumber/cucumber": "^11.1.1"
+    "@cucumber/cucumber": "^11.1.1",
+    "jest": "^29.7.0"
   }
 }

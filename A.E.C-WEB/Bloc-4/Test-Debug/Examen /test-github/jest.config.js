@@ -1,7 +1,10 @@
-module.exports = {
-  testEnvironment: 'node',
-  collectCoverage: true,
-  coverageDirectory: 'coverage',
-  testMatch: ['**/test/**/*.test.js'],
-  verbose: true
+/** @type {import('jest').Config} */
+const config = {
+  verbose: true,
+  transform: {},
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  }
 };
+
+export default config;
