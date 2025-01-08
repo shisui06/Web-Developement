@@ -1,5 +1,3 @@
-const { calculerLivraison } = require('./reduction');
-
 
 
 
