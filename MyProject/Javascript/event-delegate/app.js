@@ -7,3 +7,4 @@ list.addEventListener("click", function (e) {
     e.target.remove(); // 💥 Remove the clicked item
   }
 });
+
