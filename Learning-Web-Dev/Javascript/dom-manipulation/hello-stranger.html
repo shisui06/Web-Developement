@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<input type="text" id="nameInput" placeholder="Enter your name" />
+<button id="greetBtn">Greet Me</button>
+<h2 id="greeting">Hello, stranger!</h2>
+
+
+<script>
+const input = document.getElementById("nameInput");
+const button = document.getElementById("greetBtn");
+const greeting = document.getElementById("greeting");
+
+button.addEventListener("click", () => {
+  const name = input.value.trim(); // Get the name from the input
+
+  if (name) { // check if the input is not empty
+    greeting.textContent = `Hello, ${name}!`;
+  } else {
+    greeting.textContent = "Hello, stranger!";
+  }
+});
+
+
+</script>
+</body>
+</html>

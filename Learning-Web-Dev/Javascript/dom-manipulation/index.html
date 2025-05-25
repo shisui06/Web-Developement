@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul id="list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+
+    <button id="add">Add Item</button>
+
+    <script>
+      const list = document.getElementById("list");
+      const button = document.getElementById("add");
+
+      // When button is clicked, add a new list item
+      button.addEventListener("click", function () {
+        const li = document.createElement("li");
+        li.textContent = "New Item";
+        list.appendChild(li);
+      });
+
+      // Event Delegation: If a list item is clicked, remove it
+      list.addEventListener("click", function (event) {
+        if (event.target.tagName === "LI") {
+          event.target.remove(); // this means "remove the thing I clicked"
+        }
+      });
+    </script>
+  </body>
+</html>
