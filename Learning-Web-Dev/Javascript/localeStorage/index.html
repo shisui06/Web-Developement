@@ -1,0 +1,47 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <body>
+   
+    <input id="nameInput" placeholder="Enter your name">
+    <button id="saveBtn">Save Name</button>
+    <p id="output"> </p>
+    
+
+   
+   
+   <script> 
+   
+const input = document.getElementById("nameInput");
+const saveBtn = document.getElementById("saveBtn");
+const output = document.getElementById("output");
+
+// Load name on page load
+const storedName = localStorage.getItem("name");
+if (storedName) {
+  output.textContent = `Welcome back, ${storedName}`;
+}
+
+// Save name on button click
+saveBtn.addEventListener("click", () => {
+  const name = input.value;
+  localStorage.setItem("name", name);
+  output.textContent = `Name saved: ${name}`;
+});
+
+    
+    
+    </script>
+   
+
+
+  
+   
+  </body>
+</html>
+
+
+
+
