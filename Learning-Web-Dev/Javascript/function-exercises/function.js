@@ -41,7 +41,9 @@ function greet (name){ // "name" is a parameter
     greet("Tamoor"); //Passing a value to the function, in this case "John"
     greet("");
 
-  // FUNCTION WITH A DEFAULT PARAMETER
+  
+  
+    // FUNCTION WITH A DEFAULT PARAMETER
 
     function greet(name = "Guest") { // Instead of just of a name as a paramater there a paramter by default is set "Guest"  
       console.log("Hello, " + name + "!");
@@ -50,6 +52,8 @@ function greet (name){ // "name" is a parameter
     greet ("KASPER");
 
 
+    
+    
     //FUNCTION WITH LOOPS
 
     function checkDrivingEligibility (age){
